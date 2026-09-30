@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1152192903973060859}
   - component: {fileID: 1818321071498094386}
   - component: {fileID: 1590632671455643741}
-  - component: {fileID: 8066681378357066366}
+  - component: {fileID: 4944932861815415920}
   m_Layer: 0
   m_Name: Coin
   m_TagString: Untagged
@@ -128,7 +128,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Rotator
   _rotator: {x: 0, y: 1, z: 0}
   rotationSpeed: 100
---- !u!114 &8066681378357066366
+--- !u!114 &4944932861815415920
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -137,7 +137,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 3673527938981851667}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 58dcf2d6fccfea748a3bbb5a3e5df1fa, type: 3}
+  m_Script: {fileID: 11500000, guid: b32ec44a320a54c4fafb003a53291b6b, type: 3}
   m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CoinCollector
+  m_EditorClassIdentifier: Assembly-CSharp::CoinItem
+  coinValue: 1
   mainText: {fileID: 0}
