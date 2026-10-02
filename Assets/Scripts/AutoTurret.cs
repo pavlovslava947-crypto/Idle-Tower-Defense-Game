@@ -71,11 +71,18 @@ public class AutoTurret : MonoBehaviour
     private void Shoot(Transform target)
     {
         Vector3 origin = firePoint != null ? firePoint.position : transform.position;
-        Vector3 direction = (target.position - origin).normalized;
+
+        // Определяем точку прицеливания (грудь/центр)
+        Vector3 targetAimPosition = target.position;
+        if (target.TryGetComponent<ITargetable>(out var targetable))
+        {
+            targetAimPosition = targetable.AimPosition;
+        }
+
+        Vector3 direction = (targetAimPosition - origin).normalized;
 
         _lastRayStart = origin;
 
-        // Лучевая стрельба (Hitscan)
         if (Physics.Raycast(origin, direction, out RaycastHit hit, _targetSearcher.AttackRange, enemyLayer))
         {
             _lastRayEnd = hit.point;
