@@ -1,12 +1,21 @@
 using UnityEngine;
 
 [RequireComponent(typeof(LootSpawner))]
-public class DummyEnemy : MonoBehaviour, IDamageable
+public class DummyEnemy : MonoBehaviour, IDamageable, ITargetable
 {
+    [Header("Характеристики")]
     [SerializeField] private float maxHealth = 50f;
 
-    public float CurrentHealth { get; private set; }
+    [Header("Прицеливание")]
+    [SerializeField] private Transform aimPoint; // Пустой объект на уровне груди/центра модели
+
     private LootSpawner _lootSpawner;
+
+    public float CurrentHealth { get; private set; }
+
+    // Реализация интерфейса ITargetable
+    public Transform TargetTransform => transform;
+    public Vector3 AimPosition => aimPoint != null ? aimPoint.position : transform.position + Vector3.up * 1.2f;
 
     private void Awake()
     {
@@ -14,6 +23,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
         _lootSpawner = GetComponent<LootSpawner>();
     }
 
+    // Реализация интерфейса IDamageable
     public void TakeDamage(float amount)
     {
         if (CurrentHealth <= 0) return;
@@ -28,10 +38,13 @@ public class DummyEnemy : MonoBehaviour, IDamageable
 
     private void Die()
     {
-        // 1. Выбиваем лут
-        _lootSpawner.SpawnLoot();
+        // Спавним монетки
+        if (_lootSpawner != null)
+        {
+            _lootSpawner.SpawnLoot();
+        }
 
-        // 2. Уничтожаем или скрываем врага (в дальнейшем заблокируем для Object Pool)
+        // В будущем здесь будет возврат объекта в Object Pool
         Destroy(gameObject);
     }
 }
