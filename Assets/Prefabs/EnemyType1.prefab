@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 5165811514178674888}
   - component: {fileID: 2701054196052404521}
   - component: {fileID: 2784853494397461229}
+  - component: {fileID: 4953569115236052701}
   - component: {fileID: 3362889617002986839}
+  - component: {fileID: 5880150401534023833}
   m_Layer: 6
   m_Name: EnemyType1
   m_TagString: Untagged
@@ -123,6 +125,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
   maxHealth: 10
+  aimPoint: {fileID: 0}
 --- !u!114 &2784853494397461229
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -138,6 +141,22 @@ MonoBehaviour:
   coinPrefab: {fileID: 3673527938981851667, guid: 0975bceeb2e83df4c8ab50af592c39ab, type: 3}
   dropChance: 100
   spawnOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &4953569115236052701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3782728802002132911}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98e24a43e1e20ce488c3d0dda6b9ad91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
+  speed: 3
+  stoppingDistance: 2
+  damage: 10
+  attackCooldown: 1
 --- !u!65 &3362889617002986839
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -159,3 +178,30 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.033923972, y: 0.02500936, z: 0.069894075}
   m_Center: {x: 0.008955713, y: 0.21130817, z: 0.026130034}
+--- !u!54 &5880150401534023833
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3782728802002132911}
+  serializedVersion: 5
+  m_Mass: 1
+  m_LinearDamping: 0
+  m_AngularDamping: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0

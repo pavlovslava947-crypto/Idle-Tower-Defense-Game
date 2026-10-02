@@ -135,6 +135,24 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7480135698011137895, guid: 8dfb6ce3157b8824a97ff22772650ae9, type: 3}
   m_PrefabInstance: {fileID: 4598690356754534033}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1481705754 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4422721530943953488, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+  m_PrefabInstance: {fileID: 57551257106387407}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1481705755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1481705754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32d5488d81f4a2e42af187c46c645e5d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::TowerHealth
+  maxHealth: 100
 --- !u!1 &1662629015
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +306,66 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9168029342354119734, guid: 5a14cbad9890e3b48b91258decce1698, type: 3}
   m_PrefabInstance: {fileID: 1701511859}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &57551257106387407
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 2.13
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 3.34
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -10.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2592186875739347939, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4422721530943953488, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      propertyPath: m_Name
+      value: Tower
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 4422721530943953488, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1481705755}
+  m_SourcePrefab: {fileID: 100100000, guid: 2f568b855f320b8499889dc56ddefe5b, type: 3}
 --- !u!1001 &257570231975995101
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -467,6 +545,10 @@ PrefabInstance:
       propertyPath: aimPoint
       value: 
       objectReference: {fileID: 2293059073695272010}
+    - target: {fileID: 9070162702943295386, guid: aa9c910e624879f49857234f52140b9a, type: 3}
+      propertyPath: maxHealth
+      value: 50
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
@@ -1060,3 +1142,4 @@ SceneRoots:
   - {fileID: 6989862433180585505}
   - {fileID: 1078767256768096740}
   - {fileID: 5224393180652787574}
+  - {fileID: 57551257106387407}
