@@ -1,24 +1,31 @@
+using System;
 using UnityEngine;
 
-public class TowerHealth : MonoBehaviour
+public class TowerHealth : MonoBehaviour, IDamageable
 {
-    [Header("Характеристики башни")]
-    public float maxHealth = 100f;
-    private float currentHealth;
+    public event Action<float, float> OnHealthChanged; // Current, Max
+    public event Action OnTowerDestroyed;
 
-    void Start()
+    [Header("Характеристики башни")]
+    [SerializeField] private float maxHealth = 100f;
+
+    public float CurrentHealth { get; private set; }
+
+    private void Awake()
     {
-        // При старте игры здоровье полное
-        currentHealth = maxHealth;
+        CurrentHealth = maxHealth;
     }
 
-    // Публичный метод, который смогут вызывать враги
     public void TakeDamage(float amount)
     {
-        currentHealth -= amount;
-        Debug.Log($"Башня получила {amount} урона! Осталось HP: {currentHealth}");
+        if (CurrentHealth <= 0) return;
 
-        if (currentHealth <= 0)
+        CurrentHealth = Mathf.Max(0, CurrentHealth - amount);
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+
+        Debug.Log($"[Tower] Получен урон: {amount}. Осталось HP: {CurrentHealth}");
+
+        if (CurrentHealth <= 0)
         {
             Die();
         }
@@ -26,7 +33,7 @@ public class TowerHealth : MonoBehaviour
 
     private void Die()
     {
-        Debug.Log("Башня уничтожена! Game Over.");
-        // Позже здесь вы добавите логику проигрыша (вызов экрана Game Over, остановку спавна и т.д.)
+        Debug.Log("[Tower] Башня уничтожена! Game Over.");
+        OnTowerDestroyed?.Invoke();
     }
 }

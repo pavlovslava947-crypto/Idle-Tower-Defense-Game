@@ -41,7 +41,12 @@ public class DummyEnemy : MonoBehaviour, IDamageable, ITargetable
         // Спавним монетки
         if (_lootSpawner != null)
         {
+            Debug.Log("[Enemy] Враг погиб, вызываем спавн лута!");
             _lootSpawner.SpawnLoot();
+        }
+        else
+        {
+            Debug.LogError("[Enemy] Ошибка: LootSpawner не найден на враге!");
         }
 
         // В будущем здесь будет возврат объекта в Object Pool
