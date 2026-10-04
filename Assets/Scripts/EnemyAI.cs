@@ -29,6 +29,12 @@ public class EnemyAI : MonoBehaviour
         }
     }
 
+    public void SetStats(float newDamage, float newSpeed)
+    {
+        damage = newDamage;
+        speed = newSpeed;
+    }
+
     private void Update()
     {
         if (_towerTarget == null || _towerDamageable == null) return;

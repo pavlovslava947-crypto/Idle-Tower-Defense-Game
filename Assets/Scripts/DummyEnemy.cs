@@ -1,36 +1,56 @@
+using System;
 using UnityEngine;
 
-[RequireComponent(typeof(LootSpawner))]
-public class DummyEnemy : MonoBehaviour, IDamageable, ITargetable
+public class DummyEnemy : MonoBehaviour, IDamageable
 {
-    [Header("Характеристики")]
-    [SerializeField] private float maxHealth = 50f;
+    [Header("Здоровье")]
+    [SerializeField] private float maxHealth = 20f;
+    private float _currentHealth;
 
-    [Header("Прицеливание")]
-    [SerializeField] private Transform aimPoint; // Пустой объект на уровне груди/центра модели
+    // Реализация свойства из интерфейса IDamageable
+    public float CurrentHealth => _currentHealth;
 
+    [Header("Компоненты")]
     private LootSpawner _lootSpawner;
 
-    public float CurrentHealth { get; private set; }
-
-    // Реализация интерфейса ITargetable
-    public Transform TargetTransform => transform;
-    public Vector3 AimPosition => aimPoint != null ? aimPoint.position : transform.position + Vector3.up * 1.2f;
+    // C# событие для уведомления WaveManager о смерти врага
+    public event Action OnEnemyDied;
 
     private void Awake()
     {
-        CurrentHealth = maxHealth;
         _lootSpawner = GetComponent<LootSpawner>();
+        if (_lootSpawner == null)
+        {
+            _lootSpawner = GetComponentInChildren<LootSpawner>();
+        }
     }
 
-    // Реализация интерфейса IDamageable
+    private void Start()
+    {
+        // Если здоровье не было инициализировано извне (WaveManager), ставим базовое
+        if (_currentHealth <= 0)
+        {
+            _currentHealth = maxHealth;
+        }
+    }
+
+    // Вызывается из WaveManager при спавне для масштабирования
+    public void Initialize(float scaledHealth, float scaledDamage, float scaledSpeed)
+    {
+        maxHealth = scaledHealth;
+        _currentHealth = scaledHealth;
+
+        if (TryGetComponent(out EnemyAI ai))
+        {
+            ai.SetStats(scaledDamage, scaledSpeed);
+        }
+    }
+
     public void TakeDamage(float amount)
     {
-        if (CurrentHealth <= 0) return;
+        _currentHealth -= amount;
 
-        CurrentHealth -= amount;
-
-        if (CurrentHealth <= 0)
+        if (_currentHealth <= 0)
         {
             Die();
         }
@@ -38,18 +58,15 @@ public class DummyEnemy : MonoBehaviour, IDamageable, ITargetable
 
     private void Die()
     {
-        // Спавним монетки
+        // Сообщаем спавнеру, что этот враг погиб
+        OnEnemyDied?.Invoke();
+
+        // Вызываем спавн лута
         if (_lootSpawner != null)
         {
-            Debug.Log("[Enemy] Враг погиб, вызываем спавн лута!");
             _lootSpawner.SpawnLoot();
         }
-        else
-        {
-            Debug.LogError("[Enemy] Ошибка: LootSpawner не найден на враге!");
-        }
 
-        // В будущем здесь будет возврат объекта в Object Pool
         Destroy(gameObject);
     }
 }
