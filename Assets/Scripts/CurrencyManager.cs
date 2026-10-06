@@ -22,6 +22,12 @@ public class CurrencyManager : MonoBehaviour
         }
         Instance = this;
     }
+    // ДОБАВЛЯЕМ ЭТОТ МЕТОД ДЛЯ ТЕСТОВ
+    private void Start()
+    {
+        // Выдаем 1000 монет на старте игры для тестирования прокачки
+        AddCoins(9999999);
+    }
 
     public void AddCoins(int amount)
     {
@@ -39,4 +45,19 @@ public class CurrencyManager : MonoBehaviour
             coinsText.text = $"Валюта: {Coins}";
         }
     }
+    public bool TrySpend(int amount)
+    {
+        if (amount <= 0) return false;
+
+        if (Coins >= amount)
+        {
+            Coins -= amount;
+            UpdateUI();
+            OnCoinsChanged?.Invoke(Coins);
+            return true;
+        }
+
+        return false;
+    }
+
 }

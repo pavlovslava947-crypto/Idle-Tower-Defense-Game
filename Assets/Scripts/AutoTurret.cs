@@ -3,7 +3,10 @@ using UnityEngine;
 [RequireComponent(typeof(TargetSearcher))]
 public class AutoTurret : MonoBehaviour
 {
-    [Header("Параметры стрельбы")]
+    [Header("Зависимости")]
+    [SerializeField] private PlayerStats playerStats; // Ссылка на систему прокачки
+
+    [Header("Параметры стрельбы (Базовые/Фоллбэк)")]
     [SerializeField] private float damage = 10f;
     [SerializeField] private float fireRate = 2f; // Выстрелов в секунду
     [SerializeField] private LayerMask enemyLayer;
@@ -29,6 +32,40 @@ public class AutoTurret : MonoBehaviour
         _targetSearcher = GetComponent<TargetSearcher>();
     }
 
+    private void Start()
+    {
+        // Подписываемся на события изменения характеристик
+        if (playerStats != null)
+        {
+            playerStats.OnStatChanged += HandleStatChanged;
+            UpdateStats(); // Инициализируем стартовые значения из PlayerStats
+        }
+    }
+
+    private void OnDestroy()
+    {
+        // Обязательно отписываемся от события при уничтожении объекта
+        if (playerStats != null)
+        {
+            playerStats.OnStatChanged -= HandleStatChanged;
+        }
+    }
+
+    private void HandleStatChanged(StatType statType, float newValue)
+    {
+        // При любом изменении обновляем параметры турели
+        UpdateStats();
+    }
+
+    private void UpdateStats()
+    {
+        if (playerStats == null) return;
+
+        // Обновляем урон и скорострельность из единого источника данных
+        damage = playerStats.GetStat(StatType.Damage);
+        fireRate = playerStats.GetStat(StatType.FireRate);
+    }
+
     private void Update()
     {
         _fireCooldown -= Time.deltaTime;
@@ -44,7 +81,8 @@ public class AutoTurret : MonoBehaviour
         if (_fireCooldown <= 0f)
         {
             Shoot(target);
-            _fireCooldown = 1f / fireRate;
+            // Избегаем деления на ноль, если fireRate вдруг станет 0
+            _fireCooldown = fireRate > 0f ? 1f / fireRate : 0.5f;
         }
 
         // Таймер отрисовки Gizmos
@@ -89,6 +127,7 @@ public class AutoTurret : MonoBehaviour
 
             if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
             {
+                // Наносится актуальный урон, пересчитанный из PlayerStats!
                 damageable.TakeDamage(damage);
             }
         }
