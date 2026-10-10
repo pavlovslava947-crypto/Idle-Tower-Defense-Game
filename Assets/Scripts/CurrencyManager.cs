@@ -26,7 +26,7 @@ public class CurrencyManager : MonoBehaviour
     private void Start()
     {
         // Выдаем 1000 монет на старте игры для тестирования прокачки
-        AddCoins(9999999);
+        AddCoins(0);
     }
 
     public void AddCoins(int amount)

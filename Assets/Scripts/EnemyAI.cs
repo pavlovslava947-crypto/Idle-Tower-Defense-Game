@@ -1,11 +1,9 @@
 using UnityEngine;
+using UnityEngine.AI; // Обязательно добавляем для работы с NavMesh
 
+[RequireComponent(typeof(NavMeshAgent))]
 public class EnemyAI : MonoBehaviour
 {
-    [Header("Движение")]
-    [SerializeField] private float speed = 3f;
-    [SerializeField] private float stoppingDistance = 2.5f; // Увеличьте, если башня широкая!
-
     [Header("Атака")]
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackCooldown = 1f;
@@ -13,6 +11,12 @@ public class EnemyAI : MonoBehaviour
     private float _nextAttackTime;
     private Transform _towerTarget;
     private IDamageable _towerDamageable;
+    private NavMeshAgent _agent;
+
+    private void Awake()
+    {
+        _agent = GetComponent<NavMeshAgent>();
+    }
 
     private void Start()
     {
@@ -22,6 +26,9 @@ public class EnemyAI : MonoBehaviour
         {
             _towerTarget = towerObj.transform;
             _towerDamageable = towerObj.GetComponent<IDamageable>();
+
+            // Задаем конечную точку маршрута для NavMeshAgent
+            _agent.SetDestination(_towerTarget.position);
         }
         else
         {
@@ -32,43 +39,44 @@ public class EnemyAI : MonoBehaviour
     public void SetStats(float newDamage, float newSpeed)
     {
         damage = newDamage;
-        speed = newSpeed;
+
+        // Синхронизируем скорость со скриптом NavMeshAgent
+        if (_agent != null)
+        {
+            _agent.speed = newSpeed;
+        }
     }
 
     private void Update()
     {
         if (_towerTarget == null || _towerDamageable == null) return;
 
-        // Выравниваем Y-координату целевой точки с высотой врага
-        Vector3 targetAtSameHeight = new Vector3(_towerTarget.position.x, transform.position.y, _towerTarget.position.z);
-
-        // Расчет дистанции по горизонтали
-        float distance = Vector3.Distance(transform.position, targetAtSameHeight);
-
-        // Если расстояние БОЛЬШЕ дистанции остановки — двигаемся
-        if (distance > stoppingDistance)
+        // Проверяем, построил ли агент валидный путь
+        if (_agent.pathStatus == NavMeshPathStatus.PathPartial || _agent.pathStatus == NavMeshPathStatus.PathInvalid)
         {
-            MoveAndRotateTowards(targetAtSameHeight);
+            // Если путь сломался, пробуем обновить пункт назначения
+            _agent.SetDestination(_towerTarget.position);
+        }
+
+        float distance = Vector3.Distance(transform.position, _towerTarget.position);
+
+        if (distance <= _agent.stoppingDistance || (_agent.hasPath && _agent.remainingDistance <= _agent.stoppingDistance))
+        {
+            _agent.isStopped = true;
+            RotateTowardsOnly(_towerTarget.position);
+            AttackTower();
         }
         else
         {
-            // Если подошли достаточно близко — останавливаемся и атакуем
-            RotateTowardsOnly(targetAtSameHeight);
-            AttackTower();
+            _agent.isStopped = false;
         }
-    }
-
-    private void MoveAndRotateTowards(Vector3 targetPosition)
-    {
-        RotateTowardsOnly(targetPosition);
-
-        // Движение к башне
-        transform.position = Vector3.MoveTowards(transform.position, targetPosition, speed * Time.deltaTime);
     }
 
     private void RotateTowardsOnly(Vector3 targetPosition)
     {
-        Vector3 direction = (targetPosition - transform.position).normalized;
+        Vector3 targetAtSameHeight = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
+        Vector3 direction = (targetAtSameHeight - transform.position).normalized;
+
         if (direction != Vector3.zero)
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction);
@@ -84,5 +92,4 @@ public class EnemyAI : MonoBehaviour
             _nextAttackTime = Time.time + attackCooldown;
         }
     }
-
 }

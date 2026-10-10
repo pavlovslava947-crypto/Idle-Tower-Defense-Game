@@ -125,4 +125,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32d5488d81f4a2e42af187c46c645e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::TowerHealth
-  maxHealth: 100
+  playerStats: {fileID: 0}
