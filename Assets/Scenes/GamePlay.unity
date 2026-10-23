@@ -666,6 +666,7 @@ GameObject:
   - component: {fileID: 826420603}
   - component: {fileID: 826420602}
   - component: {fileID: 826420601}
+  - component: {fileID: 826420604}
   m_Layer: 0
   m_Name: PowerUpManager
   m_TagString: Untagged
@@ -699,7 +700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3b8a5f6734ce479fb71ef9d28079c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSystem
-  _maxTime: 30
+  _maxTime: 1
   _timer: 0
 --- !u!4 &826420603
 Transform:
@@ -710,12 +711,27 @@ Transform:
   m_GameObject: {fileID: 826420600}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.69985, y: 0, z: 13.00737}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &826420604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826420600}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c839ad2531f2f194aa6d41510d59f46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PowerUpSpawner
+  _powerUp: {fileID: 5446101779956768354, guid: 8cf0bad42deaa96448d38c5307eda447, type: 3}
+  _turrentPos: {x: -0.1, y: 10.48, z: -0.18}
+  _deleateSpeed: 4.5
 --- !u!4 &967957062 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7480135698011137895, guid: 8dfb6ce3157b8824a97ff22772650ae9, type: 3}

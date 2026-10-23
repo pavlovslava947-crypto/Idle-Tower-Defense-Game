@@ -6,10 +6,12 @@ public class PowerUpSystem : MonoBehaviour
 {
     public float _maxTime = 30f;
     public float _timer;
+    private PowerUpSpawner _spawner;
     
     
     void Start()
     {
+        _spawner = GetComponent<PowerUpSpawner>();
         _timer = _maxTime;
     }
 
@@ -38,6 +40,7 @@ public class PowerUpSystem : MonoBehaviour
     {
 
         _timer = _maxTime;
+        _spawner.Spawn();
         Debug.Log("УЛЬТААААААААААААААААААААААА");
     }
 }

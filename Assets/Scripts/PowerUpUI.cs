@@ -37,5 +37,6 @@ public class PowerUpUI : MonoBehaviour
     void Resett()
     {
         _powerUpImage.fillAmount = 1;
+        _powerUpTimerText.text = " ";
     }
 }
