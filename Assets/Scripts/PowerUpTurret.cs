@@ -44,12 +44,7 @@ public class PowerUpTurret : MonoBehaviour
 
         if (closestEnemy != null)
         {
-            // Поворачиваемся лицом к врагу (опционально, для красоты)
-            Vector3 direction = (closestEnemy.position - transform.position).normalized;
-            if (direction != Vector3.zero)
-            {
-                transform.rotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            }
+            
 
             // Наносим урон через интерфейс IDamageable (как в главной башне)
             if (closestEnemy.TryGetComponent<IDamageable>(out var enemyDamageable))
