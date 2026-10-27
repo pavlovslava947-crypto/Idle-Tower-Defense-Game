@@ -42,7 +42,7 @@ public class CurrencyManager : MonoBehaviour
     {
         if (coinsText != null)
         {
-            coinsText.text = $"Валюта: {Coins}";
+            coinsText.text = Coins.ToString();
         }
     }
     public bool TrySpend(int amount)
@@ -59,5 +59,4 @@ public class CurrencyManager : MonoBehaviour
 
         return false;
     }
-
 }

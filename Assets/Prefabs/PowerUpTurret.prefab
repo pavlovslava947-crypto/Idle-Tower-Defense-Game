@@ -4941,7 +4941,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpTurret
   fireRate: 10
-  damage: 25
+  damage: 20
   range: 20
   enemyLayer:
     serializedVersion: 2

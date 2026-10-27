@@ -16,7 +16,7 @@ public class UpgradeButtonUI : MonoBehaviour
 
     [Header("UI Элементы")]
     [SerializeField] private TextMeshProUGUI costText;
-    [SerializeField] private TextMeshProUGUI statNameText; // Опционально
+    
 
     private Button upgradeButton;
 
@@ -53,12 +53,9 @@ public class UpgradeButtonUI : MonoBehaviour
     {
         if (costText != null)
         {
-            costText.text = $"Cost: {currentCost}$";
+            costText.text = currentCost.ToString();
         }
 
-        if (statNameText != null)
-        {
-            statNameText.text = $"Upgrade {statToUpgrade}";
-        }
+        
     }
 }
