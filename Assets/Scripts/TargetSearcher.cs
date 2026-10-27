@@ -4,6 +4,7 @@ public class TargetSearcher : MonoBehaviour
 {
     [SerializeField] private float attackRange = 10f;
     [SerializeField] private LayerMask enemyLayer;
+    [SerializeField] private GameObject _particle;
 
     private readonly Collider[] _hitBuffer = new Collider[32]; // Предвыделенный буфер для WebGL
 
@@ -22,13 +23,19 @@ public class TargetSearcher : MonoBehaviour
             if (enemyCollider.TryGetComponent<IDamageable>(out var damageable) && damageable.CurrentHealth <= 0)
                 continue;
 
+           
             float distSqr = (enemyCollider.transform.position - origin).sqrMagnitude;
             if (distSqr < minDistanceSqr)
             {
                 minDistanceSqr = distSqr;
                 nearestEnemy = enemyCollider.transform;
             }
+
+
+           
         }
+
+        _particle.SetActive(nearestEnemy != null);
 
         return nearestEnemy;
     }

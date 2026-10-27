@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 1037467193354786952}
   - component: {fileID: 3386583568822188621}
   - component: {fileID: 4431622983256001151}
-  - component: {fileID: 5601870238324989157}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Tower
@@ -131,16 +130,3 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 3860856643746104807, guid: f3ff4b2d5120c094e82d729ced5cca42, type: 3}
---- !u!114 &5601870238324989157
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6873444599073578479}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32d5488d81f4a2e42af187c46c645e5d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::TowerHealth
-  playerStats: {fileID: 0}

@@ -97,7 +97,8 @@ public class AutoTurret : MonoBehaviour
         if (rotatablePart == null) return;
 
         Vector3 direction = (targetPosition - rotatablePart.position).normalized;
-        direction.y = 0; // Игнорируем наклон по Y (для Top-Down башен)
+        direction.y = 0;
+          // Игнорируем наклон по Y (для Top-Down башен)
 
         if (direction != Vector3.zero)
         {
