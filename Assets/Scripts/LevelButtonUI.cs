@@ -6,9 +6,9 @@ public class LevelButtonUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _healthLevelText;
     [SerializeField] private TextMeshProUGUI _damageLevelText;
     [SerializeField] private TextMeshProUGUI _fireRateLevelText;
-    private int _healthLevelCount = 0;
-    private int _damageLevelCount = 0;
-    private int _fireRateLevelCount = 0;
+    private int _healthLevelCount = 1;
+    private int _damageLevelCount = 1;
+    private int _fireRateLevelCount = 1;
 
     private void Start()
     {

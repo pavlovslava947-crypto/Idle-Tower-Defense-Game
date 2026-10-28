@@ -49,6 +49,12 @@ public class HealthBarUI : MonoBehaviour
             return;
         }
 
+        if(currentHealth <= 0)
+        {
+            _healthImage.DOKill();
+            Destroy(gameObject);
+        }
+
         float _targetFill = currentHealth / maxHealth;
         _healthTweener = _healthImage.DOFillAmount(_targetFill, _animDuration).SetEase(Ease.OutQuad);
         _healthText.text = currentHealth.ToString("F0");

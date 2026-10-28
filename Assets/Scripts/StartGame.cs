@@ -4,7 +4,6 @@ using UnityEngine.SceneManagement;
 public class StartGame : MonoBehaviour
 {
     [SerializeField] private string mainScene = "GamePlay";
-    [SerializeField] private string EnviromentScene = "Enviroment";
     private float _timer;
     [SerializeField] private float _maxTime = 2f;
     private bool _isStartGame = false;
@@ -39,6 +38,5 @@ public class StartGame : MonoBehaviour
     void LoadScene()
     {
         SceneManager.LoadScene(mainScene);
-        SceneManager.LoadScene(EnviromentScene);
     }
 }

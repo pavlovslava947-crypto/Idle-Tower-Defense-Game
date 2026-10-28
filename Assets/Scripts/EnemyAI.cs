@@ -7,12 +7,16 @@ public class EnemyAI : MonoBehaviour
     [Header("Атака")]
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackCooldown = 1f;
-    
+    [SerializeField] private float attackInterval = 1.0f;
+    [SerializeField] private float attackRange = 2.0f;
+
 
     private float _nextAttackTime;
     private Transform _towerTarget;
     private IDamageable _towerDamageable;
     private NavMeshAgent _agent;
+    private bool _isAttacking = false;
+    private float _attackTimer;
 
     private void Awake()
     {
@@ -53,24 +57,35 @@ public class EnemyAI : MonoBehaviour
     {
         if (_towerTarget == null || _towerDamageable == null) return;
 
-        // Проверяем, построил ли агент валидный путь
-        if (_agent.pathStatus == NavMeshPathStatus.PathPartial || _agent.pathStatus == NavMeshPathStatus.PathInvalid)
+        if (_isAttacking)
         {
-            // Если путь сломался, пробуем обновить пункт назначения
-            _agent.SetDestination(_towerTarget.position);
+            // Стоим на месте, смотрим на башню и бьем по кулдауну
+            _agent.isStopped = true;
+            RotateTowardsOnly(_towerTarget.position);
+
+            // Тикаем таймер атаки
+            _attackTimer += Time.deltaTime;
+            if (_attackTimer >= attackInterval)
+            {
+                _attackTimer = 0f;
+                _towerDamageable.TakeDamage(damage);
+            }
+            return; // Выходим из Update, дальше код движения не выполняем!
+
         }
 
         float distance = Vector3.Distance(transform.position, _towerTarget.position);
 
-        if (distance <= _agent.stoppingDistance || (_agent.hasPath && _agent.remainingDistance <= _agent.stoppingDistance))
+        if (distance <= attackRange)
         {
+            // Переключаем в режим атаки навсегда
+            _isAttacking = true;
             _agent.isStopped = true;
-            RotateTowardsOnly(_towerTarget.position);
-            AttackTower();
         }
         else
         {
             _agent.isStopped = false;
+            _agent.SetDestination(_towerTarget.position);
         }
     }
 
@@ -83,16 +98,6 @@ public class EnemyAI : MonoBehaviour
         {
             Quaternion lookRotation = Quaternion.LookRotation(direction);
             transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
-        }
-    }
-
-    private void AttackTower()
-    {
-        if (Time.time >= _nextAttackTime)
-        {
-            _towerDamageable.TakeDamage(damage);
-            _nextAttackTime = Time.time + attackCooldown;
-           
         }
     }
 }

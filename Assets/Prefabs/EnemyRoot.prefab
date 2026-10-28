@@ -96,6 +96,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyAI
   damage: 10
   attackCooldown: 1
+  attackInterval: 1
+  attackRange: 6.5
 --- !u!54 &3674595571272632988
 Rigidbody:
   m_ObjectHideFlags: 0
