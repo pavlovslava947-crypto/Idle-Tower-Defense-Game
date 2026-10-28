@@ -10,7 +10,7 @@ public class TowerHealth : MonoBehaviour, IDamageable
     [SerializeField] private PlayerStats playerStats;
     [SerializeField] private RuinedTowerSpawner _spawner;
 
-    private float maxHealth;
+    public float maxHealth;
     public float CurrentHealth { get; private set; }
 
     private void Start()
@@ -69,6 +69,7 @@ public class TowerHealth : MonoBehaviour, IDamageable
         OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
 
         Debug.Log($"[Tower] Получен урон: {amount}. Осталось HP: {CurrentHealth}");
+        
 
         if (CurrentHealth <= 0)
         {

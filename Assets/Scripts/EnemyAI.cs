@@ -7,6 +7,7 @@ public class EnemyAI : MonoBehaviour
     [Header("Атака")]
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackCooldown = 1f;
+    
 
     private float _nextAttackTime;
     private Transform _towerTarget;
@@ -16,6 +17,7 @@ public class EnemyAI : MonoBehaviour
     private void Awake()
     {
         _agent = GetComponent<NavMeshAgent>();
+        
     }
 
     private void Start()
@@ -90,6 +92,7 @@ public class EnemyAI : MonoBehaviour
         {
             _towerDamageable.TakeDamage(damage);
             _nextAttackTime = Time.time + attackCooldown;
+           
         }
     }
 }

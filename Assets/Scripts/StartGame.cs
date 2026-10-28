@@ -7,7 +7,7 @@ public class StartGame : MonoBehaviour
     [SerializeField] private string EnviromentScene = "Enviroment";
     private float _timer;
     [SerializeField] private float _maxTime = 2f;
-    private bool _isStartGmae = false;
+    private bool _isStartGame = false;
 
     private void Start()
     {
@@ -16,7 +16,7 @@ public class StartGame : MonoBehaviour
 
     private void Update()
     {
-        if (_timer > 0 && _isStartGmae)
+        if (_timer > 0 && _isStartGame)
         {
             _timer -= Time.deltaTime;
         }
@@ -32,7 +32,7 @@ public class StartGame : MonoBehaviour
 
     public void Scene()
     {
-        _isStartGmae = true;
+        _isStartGame = true;
        
     }
 

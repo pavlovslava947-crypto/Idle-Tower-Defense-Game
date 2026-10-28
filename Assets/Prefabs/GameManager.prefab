@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8884336206191643215}
   - component: {fileID: 8753685492475659732}
   - component: {fileID: 2984182971161323081}
-  - component: {fileID: 6285680988536154264}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -59,16 +58,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeManager
   playerStats: {fileID: 8753685492475659732}
---- !u!114 &6285680988536154264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1897729358941716520}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d6bb5dfe68fbc343926322dab8f30df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::CurrencyManager
-  coinsText: {fileID: 0}
