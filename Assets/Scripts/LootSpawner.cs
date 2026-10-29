@@ -13,7 +13,7 @@ public class LootSpawner : MonoBehaviour
         // Подстраховка: если поле coinPrefab пустое, загружаем монетку из папки Assets/Resources/Coin
         if (coinPrefab == null)
         {
-            coinPrefab = Resources.Load<GameObject>("Coin");
+            coinPrefab = Resources.Load<GameObject>("CoinRoot");
 
             if (coinPrefab == null)
             {
