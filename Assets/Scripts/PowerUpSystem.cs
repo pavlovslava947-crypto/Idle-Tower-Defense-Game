@@ -1,6 +1,7 @@
-using System.Threading;
-using TMPro;
+
+using System;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class PowerUpSystem : MonoBehaviour
 {
@@ -21,6 +22,11 @@ public class PowerUpSystem : MonoBehaviour
         if(_timer > 0)
         {
             _timer -= Time.deltaTime;
+        }
+
+        if (Keyboard.current.qKey.isPressed)
+        {
+            OnPowerUpButton();
         }
         
     }

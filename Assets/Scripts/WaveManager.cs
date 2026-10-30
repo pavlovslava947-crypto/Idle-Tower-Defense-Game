@@ -31,9 +31,11 @@ public class WaveManager : MonoBehaviour
     [Tooltip("Ограничение максимальной скорости врага")]
     [SerializeField] private float maxEnemySpeed = 8f;
     [SerializeField] private float speedGrowthFactor = 1.03f;
+    [SerializeField] private BossSpawner _bossSpawner;
 
     // Состояние
     private int _currentWave = 0;
+    public int CurrentWave => _currentWave;
     private int _activeEnemiesCount = 0;
     private bool _isWaveSpawning = false;
 
@@ -52,6 +54,12 @@ public class WaveManager : MonoBehaviour
     public void StartNextWave()
     {
         _currentWave++;
+
+        if(_bossSpawner != null)
+        {
+            _bossSpawner.UpdateStats();
+        }
+       
         UpdateWaveUI();
         StartCoroutine(SpawnWaveRoutine());
     }
