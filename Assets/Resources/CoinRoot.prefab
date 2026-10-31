@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3751503723050159835}
   - component: {fileID: 7759427467652014482}
   - component: {fileID: 397195060805975625}
+  - component: {fileID: 8712346036764107203}
   m_Layer: 0
   m_Name: CoinRoot
   m_TagString: Untagged
@@ -83,6 +84,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CoinItem
   coinValue: 1
+--- !u!114 &8712346036764107203
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5223936746124132479}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b3047640539c2034a837d939f7eec446, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CashMover
+  _speed: 100
+  _radius: 8.3
 --- !u!1 &6926793473278478517
 GameObject:
   m_ObjectHideFlags: 0
