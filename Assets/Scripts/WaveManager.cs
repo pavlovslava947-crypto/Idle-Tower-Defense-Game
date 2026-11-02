@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using TMPro;
+using UnityEngine;
 
 public class WaveManager : MonoBehaviour
 {
@@ -54,12 +54,13 @@ public class WaveManager : MonoBehaviour
     public void StartNextWave()
     {
         _currentWave++;
+        UpdateWaveUI();
 
-        if(_bossSpawner != null)
+        if (_bossSpawner != null)
         {
             _bossSpawner.UpdateStats();
         }
-       
+
         UpdateWaveUI();
         StartCoroutine(SpawnWaveRoutine());
     }
@@ -162,7 +163,7 @@ public class WaveManager : MonoBehaviour
         _activeEnemiesCount--;
 
         // Если все враги спавнились и все убиты — начинаем следующую волну
-        if (_activeEnemiesCount <= 0 && !_isWaveSpawning)
+        if (_activeEnemiesCount <= 0 && !_isWaveSpawning && !_bossSpawner.IsSpawned)
         {
             StartNextWave();
         }
@@ -172,7 +173,16 @@ public class WaveManager : MonoBehaviour
     {
         if (waveText != null)
         {
-            waveText.text = $"Волна: {_currentWave}";
+            if (_bossSpawner.IsSpawned)
+            {
+                waveText.color = Color.red;
+                waveText.text = "БОСС!";
+            }
+
+            else
+            {
+                waveText.text = $"Волна: {_currentWave}";
+            }
         }
     }
 
