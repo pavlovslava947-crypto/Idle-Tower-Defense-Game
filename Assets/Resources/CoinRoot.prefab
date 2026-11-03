@@ -97,7 +97,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CashMover
   _speed: 100
-  _radius: 8.3
+  _radius: 8.4
 --- !u!1 &6926793473278478517
 GameObject:
   m_ObjectHideFlags: 0

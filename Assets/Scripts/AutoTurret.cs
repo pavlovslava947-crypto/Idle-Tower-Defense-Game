@@ -131,6 +131,11 @@ public class AutoTurret : MonoBehaviour
                 // Наносится актуальный урон, пересчитанный из PlayerStats!
                 damageable.TakeDamage(damage);
             }
+
+            if (hit.collider.TryGetComponent<BossHealth>(out var alexander))
+            {
+                alexander.TakeDamage(damage);
+            }
         }
         else
         {

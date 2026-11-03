@@ -3338,7 +3338,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19e399a2ec2c9164383dacb5557b2c6c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossSpawner
-  _bossScrObj: {fileID: 11400000, guid: 5ba9728b64da81f4d89569078d3fd641, type: 2}
+  _bossData:
+  - {fileID: 11400000, guid: 5ba9728b64da81f4d89569078d3fd641, type: 2}
   _spawnPoint: {fileID: 1305792355}
   _waveManager: {fileID: 946807610}
 --- !u!1 &1983326344 stripped

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2297745020626335054}
   - component: {fileID: 3629846720906000527}
   - component: {fileID: 7099250466969117492}
-  - component: {fileID: 7194911217145711317}
   - component: {fileID: 8534092142767952812}
   - component: {fileID: 3674595571272632988}
   - component: {fileID: 7149002637250596022}
@@ -51,7 +50,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40c5e48e6cf53094387f317b97b8060a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LootSpawner
-  coinPrefab: {fileID: 0}
+  coinPrefab: {fileID: 5223936746124132479, guid: 963b557767af3444a9e605fae3d986b1, type: 3}
   dropChance: 100
   spawnOffset: {x: 0, y: 0.5, z: 0}
 --- !u!114 &7099250466969117492
@@ -67,21 +66,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
   maxHealth: 10
---- !u!114 &7194911217145711317
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3675911309277150742}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40c5e48e6cf53094387f317b97b8060a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::LootSpawner
-  coinPrefab: {fileID: 3673527938981851667, guid: 0975bceeb2e83df4c8ab50af592c39ab, type: 3}
-  dropChance: 100
-  spawnOffset: {x: 0, y: 0.5, z: 1.5}
 --- !u!114 &8534092142767952812
 MonoBehaviour:
   m_ObjectHideFlags: 0

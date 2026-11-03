@@ -82,22 +82,11 @@ public class EnemyAI : MonoBehaviour
             _isAttacking = true;
             _agent.isStopped = true;
         }
-        else
-        {
-            _agent.isStopped = false;
-            _agent.SetDestination(_towerTarget.position);
-        }
     }
 
     private void RotateTowardsOnly(Vector3 targetPosition)
     {
-        Vector3 targetAtSameHeight = new Vector3(targetPosition.x, transform.position.y, targetPosition.z);
-        Vector3 direction = (targetAtSameHeight - transform.position).normalized;
-
-        if (direction != Vector3.zero)
-        {
-            Quaternion lookRotation = Quaternion.LookRotation(direction);
-            transform.rotation = Quaternion.Slerp(transform.rotation, lookRotation, Time.deltaTime * 10f);
-        }
+        transform.LookAt(_towerTarget);
+        
     }
 }
