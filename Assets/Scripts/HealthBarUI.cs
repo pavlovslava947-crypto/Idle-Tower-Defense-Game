@@ -42,6 +42,8 @@ public class HealthBarUI : MonoBehaviour
 
     public void UpdateUI(float currentHealth , float maxHealth)
     {
+        if (gameObject == null) return;
+
         if (maxHealth <= 0 || float.IsNaN(currentHealth) || float.IsNaN(maxHealth))
         {
             _healthImage.fillAmount = 0f;

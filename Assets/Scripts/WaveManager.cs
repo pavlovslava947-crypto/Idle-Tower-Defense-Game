@@ -32,6 +32,8 @@ public class WaveManager : MonoBehaviour
     [SerializeField] private float maxEnemySpeed = 8f;
     [SerializeField] private float speedGrowthFactor = 1.03f;
     [SerializeField] private BossSpawner _bossSpawner;
+    [SerializeField] RuinedTowerSpawner _ruinedTowerSpawner;
+    [SerializeField] private CurrentWave _wave;
 
     // Состояние
     private int _currentWave = 0;
@@ -41,19 +43,25 @@ public class WaveManager : MonoBehaviour
 
     private void Start()
     {
+        
+
+        StartNextWave();
+    }
+
+    private void Update()
+    {
         if (towerTransform == null)
         {
             GameObject tower = GameObject.FindGameObjectWithTag("Tower");
             if (tower != null) towerTransform = tower.transform;
             else Debug.LogError("[WaveManager] Башня не найдена!");
         }
-
-        StartNextWave();
     }
 
     public void StartNextWave()
     {
         _currentWave++;
+        _wave._wave++;
         UpdateWaveUI();
 
         if (_bossSpawner != null)
@@ -167,6 +175,7 @@ public class WaveManager : MonoBehaviour
         {
             StartNextWave();
         }
+        
     }
 
     private void UpdateWaveUI()
@@ -185,6 +194,8 @@ public class WaveManager : MonoBehaviour
             }
         }
     }
+
+    
 
     private void OnDrawGizmosSelected()
     {
