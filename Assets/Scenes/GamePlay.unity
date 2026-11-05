@@ -673,6 +673,7 @@ GameObject:
   - component: {fileID: 408791832}
   - component: {fileID: 408791834}
   - component: {fileID: 408791833}
+  - component: {fileID: 408791835}
   m_Layer: 5
   m_Name: ButtonFonHealth
   m_TagString: Untagged
@@ -741,6 +742,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 408791831}
   m_CullTransparentMesh: 1
+--- !u!114 &408791835
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 408791831}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78dfaee0dcadc9489f4d2d878f6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAnim
+  _buttonScale: 0.9
+  _buttonScaleSpeed: 0.5
 --- !u!1 &545488460
 GameObject:
   m_ObjectHideFlags: 0
@@ -1305,6 +1320,7 @@ GameObject:
   - component: {fileID: 719980308}
   - component: {fileID: 719980310}
   - component: {fileID: 719980309}
+  - component: {fileID: 719980311}
   m_Layer: 5
   m_Name: ButtonFon
   m_TagString: Untagged
@@ -1373,6 +1389,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 719980307}
   m_CullTransparentMesh: 1
+--- !u!114 &719980311
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 719980307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78dfaee0dcadc9489f4d2d878f6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAnim
+  _buttonScale: 0.9
+  _buttonScaleSpeed: 0.5
 --- !u!1 &724954234
 GameObject:
   m_ObjectHideFlags: 0
@@ -2185,6 +2215,7 @@ GameObject:
   - component: {fileID: 833349026}
   - component: {fileID: 833349028}
   - component: {fileID: 833349027}
+  - component: {fileID: 833349029}
   m_Layer: 5
   m_Name: ButtonFonFireRate
   m_TagString: Untagged
@@ -2253,6 +2284,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 833349025}
   m_CullTransparentMesh: 1
+--- !u!114 &833349029
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 833349025}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d78dfaee0dcadc9489f4d2d878f6d1dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ButtonAnim
+  _buttonScale: 0.9
+  _buttonScaleSpeed: 0.5
 --- !u!114 &946807610 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1279762768011720862, guid: 2112084d82f38964daa9631d7adbe578, type: 3}
@@ -3726,6 +3771,8 @@ MonoBehaviour:
   _ruinedTower: {fileID: 5353479678892697467, guid: 6eea38a019604c44a85f9492f347732a, type: 3}
   _tower: {fileID: 957627014179215445}
   _defeatPanel: {fileID: 1699212152}
+  _turret: {fileID: 1479970670}
+  UIelements: []
 --- !u!114 &1980382674
 MonoBehaviour:
   m_ObjectHideFlags: 0

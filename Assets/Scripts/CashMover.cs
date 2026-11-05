@@ -21,6 +21,10 @@ public class CashMover : MonoBehaviour
     {
         if(_tower != null)
         {
+            if (Vector3.Distance(transform.position, _tower.position) >= 6f)
+            {
+                Vector3.MoveTowards(transform.position, _cashPoint.position, _speed * Time.deltaTime);
+            }
             if (!_isMove) return;
             transform.position = Vector3.MoveTowards(transform.position, _tower.position, _speed * Time.deltaTime);
 
@@ -29,10 +33,7 @@ public class CashMover : MonoBehaviour
                 _isMove = false;
             }
 
-            if (Vector3.Distance(transform.position, _tower.position) >= 3f)
-            {
-                Vector3.MoveTowards(transform.position, _cashPoint.position, _speed * Time.deltaTime);
-            }
+            
         }
     }
 }

@@ -7,6 +7,7 @@ TagManager:
   - Tower
   - Star
   - CashPoint
+  - CurrentStar
   layers:
   - Default
   - TransparentFX
