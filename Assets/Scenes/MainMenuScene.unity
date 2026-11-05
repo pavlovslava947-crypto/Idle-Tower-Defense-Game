@@ -488,7 +488,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -1031.2, y: 404.97003}
+  m_AnchoredPosition: {x: -850.4, y: 404.97003}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &693349555
@@ -617,18 +617,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 35754f47b13d56d41b6b39e0c32f8949, type: 3}
---- !u!114 &1137552512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6275190773905495950}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 32eb6f0352507d24cb3130abc4db8b70, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::QuitGame
 --- !u!1 &1258774820
 GameObject:
   m_ObjectHideFlags: 0
@@ -1011,6 +999,7 @@ MonoBehaviour:
   _expStarPrefab: {fileID: 2940710479401897132, guid: 5da2452ea8d765c4984fc8f8309c95a4, type: 3}
   _canvas: {fileID: 7042663794560383440}
   _exp: {fileID: 693349554}
+  _starsMover: {fileID: 4640059075308024873, guid: 5da2452ea8d765c4984fc8f8309c95a4, type: 3}
   _speed: 60
 --- !u!4 &2038839792
 Transform:
@@ -1346,7 +1335,6 @@ GameObject:
   - component: {fileID: 8965405768329138144}
   - component: {fileID: 1779184352575937114}
   - component: {fileID: 5482503366611300641}
-  - component: {fileID: 1137552512}
   m_Layer: 5
   m_Name: MainMenuCanvas
   m_TagString: Untagged
@@ -1505,7 +1493,7 @@ MonoBehaviour:
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
-  m_MatchWidthOrHeight: 0.5
+  m_MatchWidthOrHeight: 0.44
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
   m_DefaultSpriteDPI: 96

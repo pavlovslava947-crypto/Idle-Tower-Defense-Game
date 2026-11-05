@@ -31,8 +31,10 @@ public class CurrencyManager : MonoBehaviour
 
     public void AddCoins(int amount)
     {
-        if (amount <= 0) return;
-
+        if (amount <= 0)
+        {
+            return;
+        }
         Coins += amount;
         UpdateUI();
         OnCoinsChanged?.Invoke(Coins);

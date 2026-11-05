@@ -3,6 +3,7 @@ using UnityEngine;
 public class CashMover : MonoBehaviour
 {
     private Transform _tower;
+    private Transform _cashPoint;
     [SerializeField] private float _speed = 100f;
     [SerializeField] private float _radius;
     private bool _isMove = true;
@@ -11,6 +12,8 @@ public class CashMover : MonoBehaviour
     {
         var tower = FindAnyObjectByType<TowerHealth>();
         _tower = tower.transform;
+        var cashPoint = GameObject.FindWithTag("CashPoint");
+        _cashPoint = cashPoint.transform;
     }
 
     // Update is called once per frame
@@ -24,6 +27,11 @@ public class CashMover : MonoBehaviour
             if (Vector3.Distance(transform.position, _tower.position) <= _radius)
             {
                 _isMove = false;
+            }
+
+            if (Vector3.Distance(transform.position, _tower.position) >= 3f)
+            {
+                Vector3.MoveTowards(transform.position, _cashPoint.position, _speed * Time.deltaTime);
             }
         }
     }

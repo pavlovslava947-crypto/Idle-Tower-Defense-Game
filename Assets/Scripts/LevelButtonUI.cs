@@ -6,6 +6,8 @@ public class LevelButtonUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _healthLevelText;
     [SerializeField] private TextMeshProUGUI _damageLevelText;
     [SerializeField] private TextMeshProUGUI _fireRateLevelText;
+    [SerializeField] private UpgradeButtonUI _upgradeButton;
+    [SerializeField] private CurrencyManager _currencyManager;
     private int _healthLevelCount = 1;
     private int _damageLevelCount = 1;
     private int _fireRateLevelCount = 1;
@@ -17,6 +19,7 @@ public class LevelButtonUI : MonoBehaviour
 
     public void HealthLevelCalc()
     {
+        if (_currencyManager.Coins < _upgradeButton.CurrentCost) return;
         _healthLevelCount++;
         UpdateUI();
         Debug.Log("хп обновлено");
@@ -24,6 +27,7 @@ public class LevelButtonUI : MonoBehaviour
 
     public void DamageLevelCalc()
     {
+        if (_currencyManager.Coins < _upgradeButton.CurrentCost) return;
         _damageLevelCount++;
         UpdateUI();
         Debug.Log("урон обновлен");
@@ -31,6 +35,7 @@ public class LevelButtonUI : MonoBehaviour
 
     public void FireRateLevelCalc()
     {
+        if (_currencyManager.Coins < _upgradeButton.CurrentCost) return;
         _fireRateLevelCount++;
         UpdateUI();
         Debug.Log("скорострельность обновлена");

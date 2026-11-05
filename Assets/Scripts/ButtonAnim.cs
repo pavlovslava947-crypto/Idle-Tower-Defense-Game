@@ -11,6 +11,7 @@ public class ButtonAnim : MonoBehaviour
     public void AnimationClick()
     {
         transform.DOKill();
+        transform.localScale = Vector3.one;
         transform.DOScale(_buttonScale, _buttonScaleSpeed).SetLoops(2 , LoopType.Yoyo);
     }
 }

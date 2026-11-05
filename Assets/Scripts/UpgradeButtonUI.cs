@@ -11,6 +11,7 @@ public class UpgradeButtonUI : MonoBehaviour
     [Header("Настройки прокачки")]
     [SerializeField] private StatType statToUpgrade; // Выбор стата в Инспекторе
     [SerializeField] private int currentCost = 20;
+    public int CurrentCost => currentCost;
     [SerializeField] private float upgradeAmount = 5f;
     [SerializeField] private int costIncreasePerLevel = 15; // Прогрессия цены
 

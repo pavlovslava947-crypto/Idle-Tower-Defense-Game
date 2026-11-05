@@ -5,6 +5,7 @@ public class StarsMover : MonoBehaviour
     private Transform _exp;
     [SerializeField] private float _speed = 80f;
     private ExpSystem _expSystem;
+    
 
 
     private void Start()
