@@ -19,6 +19,8 @@ public class PlayerStats : MonoBehaviour
         { StatType.FireRate, 1f }
     };
 
+    [SerializeField] private ShootingAnim _shootingAnim;
+
     // Событие для оповещения других систем (например, полоски здоровья) об изменениях
     public event Action<StatType, float> OnStatChanged;
 
@@ -34,6 +36,7 @@ public class PlayerStats : MonoBehaviour
             stats[statType] += amount;
             OnStatChanged?.Invoke(statType, stats[statType]);
             Debug.Log($"[PlayerStats] {statType} увеличен. Текущее значение: {stats[statType]}");
+            _shootingAnim._speed += 0.2f;
         }
     }
 }

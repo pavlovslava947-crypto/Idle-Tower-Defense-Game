@@ -8,6 +8,7 @@ TagManager:
   - Star
   - CashPoint
   - CurrentStar
+  - Cash
   layers:
   - Default
   - TransparentFX

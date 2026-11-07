@@ -142,6 +142,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::BossHealth
   _health: 100
+  _bossData: {fileID: 11400000, guid: 5ba9728b64da81f4d89569078d3fd641, type: 2}
 --- !u!1 &1829266935650064373
 GameObject:
   m_ObjectHideFlags: 0

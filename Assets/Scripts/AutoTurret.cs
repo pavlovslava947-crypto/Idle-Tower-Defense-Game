@@ -132,10 +132,6 @@ public class AutoTurret : MonoBehaviour
                 damageable.TakeDamage(damage);
             }
 
-            if (hit.collider.TryGetComponent<BossHealth>(out var alexander))
-            {
-                alexander.TakeDamage(damage);
-            }
         }
         else
         {

@@ -7,8 +7,9 @@ public class PowerUpUI : MonoBehaviour
     private PowerUpSystem _powerUpSystem;
     [SerializeField] private TextMeshProUGUI _powerUpTimerText;
     [SerializeField] private Image _powerUpImage;
+    private Color _alphaColor;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    void Awake()
     {
         _powerUpSystem = GetComponent<PowerUpSystem>();
     }
@@ -30,6 +31,10 @@ public class PowerUpUI : MonoBehaviour
     void UpdateUI()
     {
         _powerUpImage.fillAmount = _powerUpSystem._timer / _powerUpSystem._maxTime;
+
+        _alphaColor = _powerUpImage.color;
+        _alphaColor.a = 0.5f;
+        _powerUpImage.color = _alphaColor;
         _powerUpTimerText.text = _powerUpSystem._timer.ToString("F0");
     }
 
@@ -37,5 +42,7 @@ public class PowerUpUI : MonoBehaviour
     {
         _powerUpImage.fillAmount = 1;
         _powerUpTimerText.text = " ";
+        _alphaColor.a = 1;
+        _powerUpImage.color = _alphaColor;
     }
 }

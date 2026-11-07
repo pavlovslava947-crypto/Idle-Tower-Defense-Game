@@ -12,12 +12,12 @@ public class ExpSystem : MonoBehaviour
     [SerializeField] private StarsMover _starsMover;
     [SerializeField] private float _speed = 60f;
     [SerializeField] private static int _score = 0;
-    
+
 
     void Start()
     {
         _score += _wave._wave;
-        PlayerPrefs.SetInt("_score" , _score);
+        PlayerPrefs.SetInt("_score", _score);
         PlayerPrefs.Save();
         StartCoroutine(StarSpawn());
     }
@@ -36,7 +36,7 @@ public class ExpSystem : MonoBehaviour
         {
             GameObject star = Instantiate(_expStarPrefab, _canvas);
             RectTransform rect = star.GetComponent<RectTransform>();
-            if(rect != null)
+            if (rect != null)
             {
                 rect.anchoredPosition = new Vector2(Random.Range(-500, 500), Random.Range(-500, 500));
             }

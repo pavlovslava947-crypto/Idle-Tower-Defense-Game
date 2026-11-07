@@ -1,26 +1,14 @@
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class BossHealth : MonoBehaviour
+public class BossHealth : MonoBehaviour, IDamageable
 {
-    [SerializeField] private float _health = 100f;
-    
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [SerializeField] private float _health = 250f;
+    [SerializeField] BossData _bossData;
+    public float CurrentHealth => _health;
 
     public void TakeDamage(float amount)
     {
-       _health -= amount;
+        _health = _bossData.MaxHealth;
+        _health -= amount;
     }
-
-
 }

@@ -5,6 +5,7 @@ public class TargetSearcher : MonoBehaviour
     [SerializeField] private float attackRange = 10f;
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject _particle;
+    [SerializeField] private ShootingAnim _shootingAnim;
 
     private readonly Collider[] _hitBuffer = new Collider[32]; // Предвыделенный буфер для WebGL
 
@@ -35,6 +36,7 @@ public class TargetSearcher : MonoBehaviour
            
         }
 
+        _shootingAnim.StartShootAnimation(nearestEnemy);
         _particle.SetActive(nearestEnemy != null);
 
         return nearestEnemy;
