@@ -39,6 +39,8 @@ public class TargetSearcher : MonoBehaviour
         _shootingAnim.StartShootAnimation(nearestEnemy);
         _particle.SetActive(nearestEnemy != null);
 
+        if(nearestEnemy != null) SoundManager.Instance.PlaySound(0);
+
         return nearestEnemy;
     }
 
