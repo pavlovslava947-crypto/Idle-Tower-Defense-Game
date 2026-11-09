@@ -10,12 +10,7 @@ public class SoundManager : MonoBehaviour
     [Header("ЗВУКИ")]
 
     [SerializeField] private AudioClip[] _sounds = new AudioClip[0];
-
-    [Header("Настройки рандома")]
-
-    [SerializeField] private int _firstRange = 0;
-    [SerializeField] private int _secondRange = 0;
-
+    
     private AudioSource _audioSource;
 
     private void Awake()
