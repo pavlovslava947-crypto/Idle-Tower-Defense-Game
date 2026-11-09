@@ -6,7 +6,7 @@ public class MainMenuLoader : MonoBehaviour
 {
     private bool _isLoad = false;
     private string _menu = "MainMenuScene";
-    private WaitForSeconds _timer = new WaitForSeconds(0.5f);
+    private WaitForSeconds _timer = new WaitForSeconds(1f);
 
     public void OnMainMenuLoad()
     {

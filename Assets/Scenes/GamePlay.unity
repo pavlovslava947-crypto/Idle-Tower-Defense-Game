@@ -3801,9 +3801,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonUI
   upgradeManager: {fileID: 1980382665}
   statToUpgrade: 0
-  currentCost: 20
-  upgradeAmount: 5
-  costIncreasePerLevel: 15
+  currentCost: 15
+  upgradeAmount: 50
+  costIncreasePerLevel: 5
   costText: {fileID: 1741111765}
 --- !u!114 &1837230032
 MonoBehaviour:
@@ -5828,6 +5828,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: FillImage
       objectReference: {fileID: 0}
+    - target: {fileID: 5479604108327195223, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
+      propertyPath: m_Color.a
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5479604108327195223, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 8142357554914565892, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
       propertyPath: _durationSpeed
       value: 0.7
@@ -5862,7 +5870,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979654977961071876, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 1078.4
+      value: 1116.1
       objectReference: {fileID: 0}
     - target: {fileID: 8979654977961071876, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5898,7 +5906,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8979654977961071876, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: 14.41
       objectReference: {fileID: 0}
     - target: {fileID: 8979654977961071876, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
