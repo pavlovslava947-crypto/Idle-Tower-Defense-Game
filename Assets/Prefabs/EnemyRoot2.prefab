@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 1893825445503586293}
   - component: {fileID: 6960756582643507419}
   - component: {fileID: 5688485821565821855}
+  - component: {fileID: -1442501857688203231}
   m_Layer: 6
   m_Name: EnemyRoot2
   m_TagString: Untagged
@@ -124,6 +125,20 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 1.4034395, y: 3.329281, z: 1.8193588}
   m_Center: {x: 0.014646292, y: 1.9739093, z: 0.40967953}
+--- !u!114 &-1442501857688203231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8984284017640671024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 35abe7bc526b49144bb95ca45061e99b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::ZombiesSounds
+  _firstRange: 4
+  _secondRange: 9
 --- !u!1001 &7388928241612649029
 PrefabInstance:
   m_ObjectHideFlags: 0

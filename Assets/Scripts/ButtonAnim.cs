@@ -13,5 +13,6 @@ public class ButtonAnim : MonoBehaviour
         transform.DOKill();
         transform.localScale = Vector3.one;
         transform.DOScale(_buttonScale, _buttonScaleSpeed).SetLoops(2 , LoopType.Yoyo);
+        SoundManager.Instance.PlaySound(1);
     }
 }

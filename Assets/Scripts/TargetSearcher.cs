@@ -8,6 +8,9 @@ public class TargetSearcher : MonoBehaviour
     [SerializeField] private GameObject _particle;
     [SerializeField] private ShootingAnim _shootingAnim;
     [SerializeField] private float _maxTime = 0.7f;
+    [SerializeField] private float _fireRateSoundSpeed = 0.07f;
+    [SerializeField] private UpgradeButtonUI _upgradeButton;
+    [SerializeField] private CurrencyManager _currencyManager;
     private float _timer;
    
 
@@ -76,5 +79,15 @@ public class TargetSearcher : MonoBehaviour
 
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position, attackRange);
+    }
+
+    public void FireRateGain()
+    {
+        if (_maxTime <= 0.1) return;
+
+        if (_currencyManager.Coins >= _upgradeButton.CurrentCost)
+        {
+            _maxTime -= _fireRateSoundSpeed;
+        }
     }
 }
