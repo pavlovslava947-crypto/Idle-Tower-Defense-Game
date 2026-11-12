@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class TargetSearcher : MonoBehaviour
@@ -6,9 +7,24 @@ public class TargetSearcher : MonoBehaviour
     [SerializeField] private LayerMask enemyLayer;
     [SerializeField] private GameObject _particle;
     [SerializeField] private ShootingAnim _shootingAnim;
+    [SerializeField] private float _maxTime = 0.7f;
+    private float _timer;
+   
 
     private readonly Collider[] _hitBuffer = new Collider[32]; // Предвыделенный буфер для WebGL
 
+    private void Start()
+    {
+        _timer = _maxTime;
+    }
+
+    private void Update()
+    {
+        if(_timer > 0)
+        {
+            _timer -= Time.deltaTime;
+        }
+    }
     public Transform GetNearestTarget(Vector3 origin)
     {
         int count = Physics.OverlapSphereNonAlloc(origin, attackRange, _hitBuffer, enemyLayer);
@@ -39,10 +55,16 @@ public class TargetSearcher : MonoBehaviour
         _shootingAnim.StartShootAnimation(nearestEnemy);
         _particle.SetActive(nearestEnemy != null);
 
-        if(nearestEnemy != null) SoundManager.Instance.PlaySound(0);
+        if (nearestEnemy != null && _timer <= 0)
+        {
+            SoundManager.Instance.PlaySound(0);
+
+            _timer = _maxTime;
+        }
 
         return nearestEnemy;
     }
+
 
     public float AttackRange => attackRange;
 

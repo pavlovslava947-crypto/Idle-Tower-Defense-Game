@@ -1,4 +1,5 @@
 
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,7 +11,6 @@ public class SoundManager : MonoBehaviour
     [Header("ЗВУКИ")]
 
     [SerializeField] private AudioClip[] _sounds = new AudioClip[0];
-    
     private AudioSource _audioSource;
 
     private void Awake()
