@@ -8,9 +8,6 @@ public class ExpSystem : MonoBehaviour
     [SerializeField] private CurrentWave _wave;
     [SerializeField] private GameObject _expStarPrefab;
     [SerializeField] private Transform _canvas;
-    [SerializeField] private Transform _exp;
-    [SerializeField] private StarsMover _starsMover;
-    [SerializeField] private float _speed = 60f;
     [SerializeField] private static int _score = 0;
 
 

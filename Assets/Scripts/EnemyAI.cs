@@ -6,7 +6,6 @@ public class EnemyAI : MonoBehaviour
 {
     [Header("Атака")]
     [SerializeField] private float damage = 10f;
-    [SerializeField] private float attackCooldown = 1f;
     [SerializeField] private float attackInterval = 1.0f;
     [SerializeField] private float attackRange = 2.0f;
 
