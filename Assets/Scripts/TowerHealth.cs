@@ -80,6 +80,7 @@ public class TowerHealth : MonoBehaviour, IDamageable
     private void Die()
     {
         Debug.Log("[Tower] Башня уничтожена! Game Over.");
+        AdManager.Instance.AdCall();
         OnTowerDestroyed?.Invoke();
         _spawner.Spawn();
         Destroy(gameObject);

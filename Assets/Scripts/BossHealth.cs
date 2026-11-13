@@ -6,9 +6,13 @@ public class BossHealth : MonoBehaviour, IDamageable
     [SerializeField] BossData _bossData;
     public float CurrentHealth => _health;
 
-    public void TakeDamage(float amount)
+    void Start()
     {
         _health = _bossData.MaxHealth;
+    }
+
+    public void TakeDamage(float amount)
+    {
         _health -= amount;
     }
 }

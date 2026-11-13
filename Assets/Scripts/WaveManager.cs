@@ -40,10 +40,14 @@ public class WaveManager : MonoBehaviour
     public int CurrentWave => _currentWave;
     private int _activeEnemiesCount = 0;
     private bool _isWaveSpawning = false;
+    private TowerHealth _towerHealth;
 
     private void Start()
     {
-        
+        GameObject tower = GameObject.FindGameObjectWithTag("Tower");
+        _towerHealth = tower.GetComponent<TowerHealth>();
+
+        _towerHealth.OnTowerDestroyed += OnTowerDie;
 
         StartNextWave();
     }
@@ -193,6 +197,14 @@ public class WaveManager : MonoBehaviour
                 waveText.text = $"Волна: {_currentWave}";
             }
         }
+    }
+
+    private void OnTowerDie()
+    {
+        Debug.Log("<color=green>WaveManager: башня уничтожена</color>");
+        _towerHealth.OnTowerDestroyed -= OnTowerDie;
+
+        this.enabled = false;
     }
 
     

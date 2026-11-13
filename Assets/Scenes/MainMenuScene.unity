@@ -1226,20 +1226,6 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2de4d4d857262aa458b6d0fb49953c54, type: 3}
---- !u!114 &1937606131
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6488478311119759680}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d78dfaee0dcadc9489f4d2d878f6d1dd, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::ButtonAnim
-  _buttonScale: 2.5
-  _buttonScaleSpeed: 0.1
 --- !u!114 &1937606135
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1557,7 +1543,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1937606131}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
         m_MethodName: AnimationClick
         m_Mode: 1
@@ -1701,7 +1687,6 @@ GameObject:
   - component: {fileID: 4506052871792388481}
   - component: {fileID: 4192358265338494025}
   - component: {fileID: 3614377868252386991}
-  - component: {fileID: 1937606131}
   - component: {fileID: 1937606135}
   m_Layer: 5
   m_Name: StartGame

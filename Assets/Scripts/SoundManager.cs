@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 
 public class SoundManager : MonoBehaviour
 {
@@ -29,7 +30,11 @@ public class SoundManager : MonoBehaviour
 
     public void PlaySound(int index)
     {
-        if(index < 0 || index >= _sounds.Length)
+        if (this == null || gameObject == null) return;
+
+        if (_audioSource == null) return;
+
+        if (index < 0 || index >= _sounds.Length)
         {
             Debug.LogError("Такого звука нет. Думай.");
 
@@ -48,6 +53,10 @@ public class SoundManager : MonoBehaviour
 
     public void RandomPlay(int firstRange, int secondRange)
     {
+        if (this == null || gameObject == null) return;
+
+        if (_audioSource == null) return;
+
         if (firstRange < 0 || firstRange >= _sounds.Length || secondRange < 0 || secondRange >= _sounds.Length)
         {
             Debug.LogError("Такого звука нет. Думай.");

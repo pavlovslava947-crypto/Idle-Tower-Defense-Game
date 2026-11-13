@@ -16,16 +16,25 @@ public class EnemyAI : MonoBehaviour
     private NavMeshAgent _agent;
     private bool _isAttacking = false;
     private float _attackTimer;
+    private TowerHealth _towerHealth;
+    private bool _towerIsDie = false;
 
     private void Awake()
     {
+        if (_towerIsDie) return;
+
         _agent = GetComponent<NavMeshAgent>();
         
     }
 
     private void Start()
     {
+        if (_towerIsDie) return;
+
         GameObject towerObj = GameObject.FindGameObjectWithTag("Tower");
+        _towerHealth = towerObj.GetComponent<TowerHealth>();
+
+        _towerHealth.OnTowerDestroyed += OnTowerDie;
 
         if (towerObj != null)
         {
@@ -54,6 +63,8 @@ public class EnemyAI : MonoBehaviour
 
     private void Update()
     {
+        if (_towerIsDie) return;
+
         if (_towerTarget == null || _towerDamageable == null) return;
 
         if (_isAttacking)
@@ -87,5 +98,15 @@ public class EnemyAI : MonoBehaviour
     {
         transform.LookAt(_towerTarget);
         
+    }
+
+    private void OnTowerDie()
+    {
+        _towerIsDie = true;
+    }
+
+    private void OnDestroy()
+    {
+        _towerHealth.OnTowerDestroyed -= OnTowerDie;
     }
 }

@@ -42,7 +42,6 @@ GameObject:
   - component: {fileID: 1422652017086889478}
   - component: {fileID: 7749030468803694755}
   - component: {fileID: 3225076237513196455}
-  - component: {fileID: 295449176308866448}
   - component: {fileID: 8976578149254398449}
   - component: {fileID: -4693958434761542587}
   m_Layer: 6
@@ -83,6 +82,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossMover
   _bossScrObj: {fileID: 11400000, guid: 5ba9728b64da81f4d89569078d3fd641, type: 2}
   _radius: 7
+  _maxTime: 1.4
 --- !u!65 &3225076237513196455
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -104,33 +104,6 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 5.2986956, y: 6.377059, z: 14.055695}
   m_Center: {x: -4.631161, y: 2.1603303, z: -12.566252}
---- !u!54 &295449176308866448
-Rigidbody:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1159072984477613448}
-  serializedVersion: 5
-  m_Mass: 5000
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_CenterOfMass: {x: 0, y: 0, z: 0}
-  m_InertiaTensor: {x: 1, y: 1, z: 1}
-  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ImplicitCom: 1
-  m_ImplicitTensor: 1
-  m_UseGravity: 1
-  m_IsKinematic: 0
-  m_Interpolate: 0
-  m_Constraints: 0
-  m_CollisionDetection: 0
 --- !u!114 &8976578149254398449
 MonoBehaviour:
   m_ObjectHideFlags: 0

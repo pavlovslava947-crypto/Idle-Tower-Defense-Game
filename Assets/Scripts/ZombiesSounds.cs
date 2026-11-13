@@ -20,6 +20,8 @@ public class ZombiesSounds : MonoBehaviour
 
     void Update()
     {
+        if (SoundManager.Instance == null) return;
+
         if (Timer > 0)
         {
             Timer -= Time.deltaTime;
@@ -32,7 +34,7 @@ public class ZombiesSounds : MonoBehaviour
     }
     void PlaySound()
     {
-        if (Timer <= 0 && !_source.isPlaying)
+        if (_source != null && Timer <= 0 && !_source.isPlaying)
         {
             SoundManager.Instance.PlaySound(3);
             maxTime = Random.Range(_firstRange, _secondRange);
