@@ -15,6 +15,11 @@ public class CoinItem : MonoBehaviour
             CurrencyManager.Instance.AddCoins(coinValue);
         }
 
+        if(SoundManager.Instance != null)
+        {
+            SoundManager.Instance.PlaySound(4);
+        }
+
         Destroy(gameObject);
     }
 }
