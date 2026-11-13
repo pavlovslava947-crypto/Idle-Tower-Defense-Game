@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::BossData
   _bossName: Zombie Wagon
   _bossPrefab: {fileID: 1159072984477613448, guid: 706e109a5805aa84ebd7f4c030f665d7, type: 3}
-  _waveCount: 100
+  _waveCount: 1
   _damage: 10
   _speed: 3
   _maxHealth: 100

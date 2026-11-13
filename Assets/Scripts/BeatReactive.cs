@@ -4,23 +4,27 @@ public class BeatReactive : MonoBehaviour
 {
     [Header("Настройки звука")]
     public AudioSource audioSource;
-    [Range(0, 63)] public int bassBand = 2; 
-    public float beatThreshold = 0.15f;     
+    [Range(0, 63)] [SerializeField] private int bassBand = 2; 
+    [SerializeField] private float beatThreshold = 0.15f;     
 
     [Header("Настройки эффекта")]
-    public Vector3 beatScale = new Vector3(1.5f, 1.5f, 1.5f); 
-    public float smoothSpeed = 10f;                          
+    [SerializeField] private Vector3 beatScale = new Vector3(1.5f, 1.5f, 1.5f); 
+    [SerializeField] private float smoothSpeed = 10f;                          
 
     private Vector3 initialScale;
-    private float[] spectrumData = new float[64]; 
+    private float[] spectrumData = new float[64];
 
-    void Start()
+    private void Awake()
     {
-        initialScale = transform.localScale;
         if (audioSource == null)
         {
             audioSource = FindAnyObjectByType<AudioSource>();
         }
+    }
+
+    void Start()
+    {
+        initialScale = transform.localScale;
     }
 
     void Update()
