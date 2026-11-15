@@ -17,7 +17,7 @@ public class BossMover : MonoBehaviour
         _wheelAnim = GetComponentInChildren<Animator>();
         var tower = FindAnyObjectByType<TowerHealth>();
         _tower = tower.transform;
-        SoundManager.Instance.PlaySound(6);
+        SoundManager.Instance.PlaySound(5);
         RotateToTower();
     }
 
@@ -31,7 +31,7 @@ public class BossMover : MonoBehaviour
 
         if(_soundTimer <= 0)
         {
-            SoundManager.Instance.PlaySound(7);
+            SoundManager.Instance.PlaySound(6);
 
             _soundTimer = _maxTime;
         }

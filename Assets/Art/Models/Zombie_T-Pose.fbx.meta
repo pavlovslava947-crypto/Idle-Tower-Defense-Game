@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9c7c098ff9c556246b675db5e4a19e28
+guid: 361edf85cdcb9ce42949729dae0b838e
 ModelImporter:
   serializedVersion: 24501
   internalIDToNameTable: []
@@ -87,22 +87,7 @@ ModelImporter:
   humanDescription:
     serializedVersion: 3
     human: []
-    skeleton:
-    - name: tela_static_void_ebat(Clone)
-      parentName: 
-      position: {x: 0, y: 0, z: 0}
-      rotation: {x: 0, y: 0, z: 0, w: 1}
-      scale: {x: 1, y: 1, z: 1}
-    - name: Sphere.001
-      parentName: tela_static_void_ebat(Clone)
-      position: {x: -0, y: 0, z: 34.68775}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 100, y: 100, z: 100}
-    - name: Sphere.003
-      parentName: tela_static_void_ebat(Clone)
-      position: {x: -0, y: 0, z: 38.887844}
-      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071067}
-      scale: {x: 100, y: 100, z: 100}
+    skeleton: []
     armTwist: 0.5
     foreArmTwist: 0.5
     upperLegTwist: 0.5
@@ -117,7 +102,7 @@ ModelImporter:
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   autoGenerateAvatarMappingIfUnspecified: 1
-  animationType: 2
+  animationType: 3
   humanoidOversampling: 1
   avatarSetup: 1
   addHumanoidExtraRootOnlyWhenUsingAvatar: 1

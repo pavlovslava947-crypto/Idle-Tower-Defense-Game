@@ -8,6 +8,7 @@ public class EnemyAI : MonoBehaviour
     [SerializeField] private float damage = 10f;
     [SerializeField] private float attackInterval = 1.0f;
     [SerializeField] private float attackRange = 2.0f;
+    private ZombieAnimation _anim;
 
 
     private float _nextAttackTime;
@@ -24,6 +25,7 @@ public class EnemyAI : MonoBehaviour
         if (_towerIsDie) return;
 
         _agent = GetComponent<NavMeshAgent>();
+        _anim = GetComponent<ZombieAnimation>();
         
     }
 
@@ -67,6 +69,8 @@ public class EnemyAI : MonoBehaviour
 
         if (_towerTarget == null || _towerDamageable == null) return;
 
+        _anim.SetSpeed(_agent.velocity.magnitude);
+
         if (_isAttacking)
         {
             // Стоим на месте, смотрим на башню и бьем по кулдауну
@@ -79,6 +83,7 @@ public class EnemyAI : MonoBehaviour
             {
                 _attackTimer = 0f;
                 _towerDamageable.TakeDamage(damage);
+                _anim.SetPunch();
             }
             return; // Выходим из Update, дальше код движения не выполняем!
 

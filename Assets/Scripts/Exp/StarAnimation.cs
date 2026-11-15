@@ -14,7 +14,7 @@ public class StarAnimation : MonoBehaviour
             transform.localScale = Vector3.one;
             transform.DOScale(_scale, _speed).SetLoops(2, LoopType.Yoyo);
 
-            if (SoundManager.Instance != null) SoundManager.Instance.PlaySound(5);
+            if (SoundManager.Instance != null) SoundManager.Instance.PlaySound(4);
             else Debug.Log("погиб");
         }
     }

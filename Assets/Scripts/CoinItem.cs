@@ -17,7 +17,7 @@ public class CoinItem : MonoBehaviour
 
         if(SoundManager.Instance != null)
         {
-            SoundManager.Instance.PlaySound(4);
+            SoundManager.Instance.PlaySound(3);
         }
 
         Destroy(gameObject);

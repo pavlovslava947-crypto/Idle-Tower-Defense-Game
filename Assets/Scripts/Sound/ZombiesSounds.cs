@@ -36,7 +36,7 @@ public class ZombiesSounds : MonoBehaviour
     {
         if (_source != null && Timer <= 0 && !_source.isPlaying)
         {
-            SoundManager.Instance.PlaySound(3);
+            SoundManager.Instance.RandomPlay(7, 9);
             maxTime = Random.Range(_firstRange, _secondRange);
             Timer = maxTime;
         }

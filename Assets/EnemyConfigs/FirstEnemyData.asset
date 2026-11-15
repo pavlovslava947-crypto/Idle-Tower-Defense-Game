@@ -13,8 +13,8 @@ MonoBehaviour:
   m_Name: FirstEnemyData
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: FirstZombie
-  enemyPrefab: {fileID: 3675911309277150742, guid: 3937c57b6b8119b4697ae3163c61f0b7, type: 3}
+  enemyPrefab: {fileID: 2332796387743407699, guid: 3937c57b6b8119b4697ae3163c61f0b7, type: 3}
   baseHealth: 10
   baseDamage: 5
-  baseSpeed: 3
+  baseSpeed: 4
   spawnWeight: 10

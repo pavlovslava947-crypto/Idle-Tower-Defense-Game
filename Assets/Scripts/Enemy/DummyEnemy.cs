@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class DummyEnemy : MonoBehaviour, IDamageable
 {
@@ -15,10 +16,18 @@ public class DummyEnemy : MonoBehaviour, IDamageable
 
     // C# событие для уведомления WaveManager о смерти врага
     public event Action OnEnemyDied;
+    private ZombieAnimation _anim;
+    private BoxCollider _boxCollider;
+    private EnemyAI _enemyAI;
+    private NavMeshAgent _agent;
 
     private void Awake()
     {
+        _agent = GetComponent<NavMeshAgent>();
+        _enemyAI = GetComponent<EnemyAI>();
+        _boxCollider = GetComponent<BoxCollider>();
         _lootSpawner = GetComponent<LootSpawner>();
+        _anim = GetComponent<ZombieAnimation>();
         if (_lootSpawner == null)
         {
             _lootSpawner = GetComponentInChildren<LootSpawner>();
@@ -61,12 +70,17 @@ public class DummyEnemy : MonoBehaviour, IDamageable
         // Сообщаем спавнеру, что этот враг погиб
         OnEnemyDied?.Invoke();
 
+        _anim.SetDeath();
         // Вызываем спавн лута
         if (_lootSpawner != null)
         {
             _lootSpawner.SpawnLoot();
         }
 
-        Destroy(gameObject);
+        _agent.enabled = false;
+        _enemyAI.enabled = false;
+        _boxCollider.enabled = false;
+        
+        Destroy(gameObject, 2f);
     }
 }
