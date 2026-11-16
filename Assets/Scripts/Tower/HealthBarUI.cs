@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class HealthBarUI : MonoBehaviour
 {
-    [SerializeField] private PlayerStats _playerStats;
     [SerializeField] private TextMeshProUGUI _healthText;
     [SerializeField] private Image _healthImage;
     [SerializeField] private float _animDuration = 0.25f;
