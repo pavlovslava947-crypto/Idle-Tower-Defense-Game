@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::EnemyData
   enemyName: SecondZombie
   enemyPrefab: {fileID: 2332796387743407699, guid: 3937c57b6b8119b4697ae3163c61f0b7, type: 3}
-  baseHealth: 10
+  baseHealth: 20
   baseDamage: 10
   baseSpeed: 1.5
   spawnWeight: 10

@@ -182,7 +182,7 @@ public class WaveManager : MonoBehaviour
         
     }
 
-    private void UpdateWaveUI()
+    public void UpdateWaveUI()
     {
         if (waveText != null)
         {

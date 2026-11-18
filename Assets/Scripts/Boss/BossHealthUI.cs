@@ -49,4 +49,9 @@ public class BossHealthUI : MonoBehaviour
         _bossHealthBar.DOFillAmount(targetFill, _animDuration).SetEase(Ease.OutQuad);
         _bossHealthText.text = currentHealth + " / " + maxHealth;
     }
+
+    private void OnDestroy()
+    {
+        _bossHealth.OnBossHealthChanged -= UpdateIU;
+    }
 }

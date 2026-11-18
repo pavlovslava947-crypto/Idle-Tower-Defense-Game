@@ -8,7 +8,7 @@ public class BossSpawner : MonoBehaviour
     [SerializeField] List<BossData> _bossData = new List<BossData>();
     [SerializeField] Transform _spawnPoint;
     [SerializeField] private WaveManager _waveManager;
-    private bool _isSpawned = false;
+    public bool _isSpawned = false;
     public bool IsSpawned => _isSpawned;
    
 

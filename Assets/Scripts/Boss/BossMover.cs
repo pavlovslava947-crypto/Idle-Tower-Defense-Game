@@ -8,7 +8,7 @@ public class BossMover : MonoBehaviour
     [SerializeField] private float _radius = 2;
     [SerializeField] private float _maxTime = 2.497f;
     private float _soundTimer;
-    private bool _isMoving = true;
+    [SerializeField] private bool _isMoving = true;
     private Animator _wheelAnim;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
