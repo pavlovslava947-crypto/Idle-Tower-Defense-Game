@@ -34,7 +34,6 @@ public class BossSystem : MonoBehaviour
 
         if (_enemyCount <= 0)
         {
-            _waveManager.StartNextWave();
             _waveManager.UpdateWaveUI();
 
             foreach (Collider enemy in _enemys)

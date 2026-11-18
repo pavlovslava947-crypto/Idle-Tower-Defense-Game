@@ -43,6 +43,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
         }
     }
 
+
     // Вызывается из WaveManager при спавне для масштабирования
     public void Initialize(float scaledHealth, float scaledDamage, float scaledSpeed)
     {
@@ -58,6 +59,8 @@ public class DummyEnemy : MonoBehaviour, IDamageable
     public void TakeDamage(float amount)
     {
         _currentHealth -= amount;
+
+        SoundManager.Instance.RandomPlay(10, 12, 0.45f, 0.3f); // удар пули по телу зомби
 
         if (_currentHealth <= 0)
         {
@@ -80,7 +83,7 @@ public class DummyEnemy : MonoBehaviour, IDamageable
         _agent.enabled = false;
         _enemyAI.enabled = false;
         _boxCollider.enabled = false;
-        
+
         Destroy(gameObject, 2f);
     }
 }
