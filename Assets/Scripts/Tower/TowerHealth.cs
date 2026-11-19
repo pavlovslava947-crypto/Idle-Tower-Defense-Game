@@ -8,7 +8,6 @@ public class TowerHealth : MonoBehaviour, IDamageable
 
     [Header("Ссылки на систему прокачки")]
     [SerializeField] private PlayerStats playerStats;
-    [SerializeField] private RuinedTowerSpawner _spawner;
 
     public float maxHealth;
     public float CurrentHealth { get; private set; }
@@ -77,12 +76,21 @@ public class TowerHealth : MonoBehaviour, IDamageable
         }
     }
 
+    public void Heal(float amount)
+    {
+        if(CurrentHealth <= 0 || amount <= 0 || CurrentHealth >= maxHealth) return;
+
+        CurrentHealth = Mathf.Min(maxHealth, CurrentHealth += amount);
+
+        OnHealthChanged?.Invoke(CurrentHealth, maxHealth);
+    }
+
     private void Die()
     {
         Debug.Log("[Tower] Башня уничтожена! Game Over.");
         AdManager.Instance.AdCall();
         OnTowerDestroyed?.Invoke();
-        _spawner.Spawn();
+       
         Destroy(gameObject);
     }
 }

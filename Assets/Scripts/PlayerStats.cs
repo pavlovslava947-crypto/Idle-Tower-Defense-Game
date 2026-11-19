@@ -15,7 +15,7 @@ public class PlayerStats : MonoBehaviour
     private Dictionary<StatType, float> stats = new Dictionary<StatType, float>()
     {
         { StatType.Health, 100f },
-        { StatType.Damage, 10f },
+        { StatType.Damage, 15f },
         { StatType.FireRate, 1f }
     };
 

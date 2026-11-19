@@ -7,16 +7,18 @@ public class RuinedTowerSpawner : MonoBehaviour
     [SerializeField] private Transform _tower;
     [SerializeField] GameObject _defeatPanel;
     [SerializeField] private GameObject _turret;
-    [SerializeField] private ButtonAnim[] UIelements;
-    
+    [SerializeField] private TowerHealth _towerHealth;
+
+    private ButtonAnim[] UIelements;
     private bool _isSpawned = false;
     public bool IsSpawned => _isSpawned;
 
     private void Start()
     {
+        _towerHealth.OnTowerDestroyed += Spawn;
         UIelements = FindObjectsByType<ButtonAnim>();
     }
-    public void Spawn()
+    private void Spawn()
     {
         GameObject ruinedTower = Instantiate(_ruinedTower);
         ruinedTower.transform.position = _tower.transform.position;
@@ -33,5 +35,7 @@ public class RuinedTowerSpawner : MonoBehaviour
         {
             ui.gameObject.SetActive(false);
         }
+
+        _towerHealth.OnTowerDestroyed -= Spawn;
     }
 }

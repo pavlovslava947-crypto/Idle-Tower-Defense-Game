@@ -17,4 +17,4 @@ MonoBehaviour:
   baseHealth: 10
   baseDamage: 5
   baseSpeed: 4
-  spawnWeight: 10
+  spawnWeight: 60

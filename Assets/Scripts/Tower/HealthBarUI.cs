@@ -16,7 +16,6 @@ public class HealthBarUI : MonoBehaviour
     void Awake()
     {
 
-        _health = 
         _maxHealth = _health;
         _towerHealth.OnHealthChanged += HandleHealthChanged;
        
@@ -57,6 +56,8 @@ public class HealthBarUI : MonoBehaviour
         }
 
         float _targetFill = currentHealth / maxHealth;
+
+        _healthTweener?.Kill();
         _healthTweener = _healthImage.DOFillAmount(_targetFill, _animDuration).SetEase(Ease.OutQuad);
         _healthText.text = currentHealth.ToString("F0");
     }

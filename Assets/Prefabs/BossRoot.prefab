@@ -2735,7 +2735,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &4642399148726092977
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4820,7 +4820,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &5951834066122773243
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7173,7 +7173,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &4002121150717912330
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7639,7 +7639,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &4287799968581796546
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8836,7 +8836,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &546777245919718668
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9019,7 +9019,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &485547349208130714
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9587,7 +9587,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &873533914161987483
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9826,7 +9826,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d20175b0334603846877ea35073ea27d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::DummyEnemy
-  maxHealth: 100
+  maxHealth: 500
 --- !u!114 &1095339913929026562
 MonoBehaviour:
   m_ObjectHideFlags: 0
