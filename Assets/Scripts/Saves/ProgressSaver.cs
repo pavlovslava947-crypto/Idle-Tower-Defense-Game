@@ -23,4 +23,12 @@ public class ProgressSaver : MonoBehaviour
 
         return YG2.saves._expCount;
     }
+
+    public float VolumeSaver(float saveValue)
+    {
+        YG2.saves._playerVolume = saveValue;
+        YG2.SaveProgress();
+
+        return YG2.saves._playerVolume;
+    }
 }
