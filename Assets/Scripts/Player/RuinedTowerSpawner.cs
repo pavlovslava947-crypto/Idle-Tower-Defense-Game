@@ -8,6 +8,7 @@ public class RuinedTowerSpawner : MonoBehaviour
     [SerializeField] GameObject _defeatPanel;
     [SerializeField] private GameObject _turret;
     [SerializeField] private TowerHealth _towerHealth;
+    [SerializeField] private PanelAnim _panelAnim;
 
     private ButtonAnim[] UIelements;
     private bool _isSpawned = false;
@@ -29,6 +30,7 @@ public class RuinedTowerSpawner : MonoBehaviour
     void UpdateUI()
     {
         _defeatPanel.SetActive(true);
+        _panelAnim.PanelDeparture();
         _turret.SetActive(false);
 
         foreach(ButtonAnim ui in UIelements)

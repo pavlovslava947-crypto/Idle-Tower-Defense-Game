@@ -1725,7 +1725,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 8098651505096067323}
         m_TargetAssemblyTypeName: ButtonAnim, Assembly-CSharp
         m_MethodName: AnimationClick
         m_Mode: 1

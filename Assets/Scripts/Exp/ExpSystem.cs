@@ -10,16 +10,18 @@ public class ExpSystem : MonoBehaviour
     [SerializeField] private Transform _canvas;
     [SerializeField] private int _score = 0;
     private int _newScore;
-    private int _uiNumbers = 0;
+    private int _uiNumbers;
 
 
     void Start()
     {
-        _score = _wave._wave;
-       
-        _newScore = ProgressSaver.Instance.ExpSave(_score); // сейв менеджер
+        _uiNumbers = ProgressSaver.Instance.CurrentExp;
+        _scoreText.text = _uiNumbers.ToString();
 
-        StartCoroutine(StarSpawn());
+        _score = _wave._wave;
+        ProgressSaver.Instance.ExpSave(_score); // сейв менеджер
+
+        StartCoroutine(StarSpawn(_score));
     }
 
 
@@ -31,9 +33,9 @@ public class ExpSystem : MonoBehaviour
         _scoreText.text = _uiNumbers.ToString();
     }
 
-    private IEnumerator StarSpawn()
+    private IEnumerator StarSpawn(int starsForSpawn)
     {
-        for (int i = 0; i < _newScore; i++)
+        for (int i = 0; i < starsForSpawn; i++)
         {
             GameObject star = Instantiate(_expStarPrefab, _canvas);
             RectTransform rect = star.GetComponent<RectTransform>();
