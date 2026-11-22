@@ -10,24 +10,36 @@ public class CashMover : MonoBehaviour
     void Start()
     {
         var tower = FindAnyObjectByType<TowerHealth>();
-        _tower = tower.transform;
+
+        if(_tower != null)
+        {
+            _tower = tower.transform;
+        }
     }
 
     
     void FixedUpdate()
     {
-        if(!_movingToTower) return;
-
-        float distanceToTower = Vector3.Distance(transform.position, _tower.position);
-
-        if(_movingToTower && distanceToTower <= _radius)
+        if(_tower != null)
         {
-            _movingToTower = false;
+            if (!_movingToTower) return;
+
+            float distanceToTower = Vector3.Distance(transform.position, _tower.position);
+
+            if (_movingToTower && distanceToTower <= _radius)
+            {
+                _movingToTower = false;
+            }
+
+            if (_movingToTower)
+            {
+                transform.position = Vector3.MoveTowards(transform.position, _tower.position, _speed * Time.fixedDeltaTime);
+            }
         }
 
-        if (_movingToTower)
+        else
         {
-            transform.position = Vector3.MoveTowards(transform.position, _tower.position, _speed * Time.fixedDeltaTime);
+            return;
         }
     }
 }
