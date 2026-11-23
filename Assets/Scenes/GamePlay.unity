@@ -3489,6 +3489,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 933eb793fb4220e458db42714af2695e, type: 3}
   - {fileID: 8300000, guid: 22b1e3545235baa4cbc19d6f6fad08e8, type: 3}
   - {fileID: 8300000, guid: d4c1ed92df73e33429316947c2a5f157, type: 3}
+  - {fileID: 8300000, guid: 1cabd8b7a1f88c142910e59cdf8a6593, type: 3}
 --- !u!82 &1067769829
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4349,6 +4350,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1401873414}
   - component: {fileID: 1401873413}
+  - component: {fileID: 1401873415}
   m_Layer: 0
   m_Name: GamePlaySound
   m_TagString: Untagged
@@ -4365,9 +4367,9 @@ AudioSource:
   m_GameObject: {fileID: 1401873412}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 8440938525209607568, guid: 8b96dd3befd5b144ab92cc4dac3f585b, type: 2}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 8300000, guid: f32c747815fc1314d80b1b6965c94fd8, type: 3}
+  m_Resource: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -4468,6 +4470,25 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1401873415
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1401873412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97858564e1d9d344a9e7f24363d2de50, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::SoundtrackFadeOut
+  _soundtracks:
+  - {fileID: 8300000, guid: f32c747815fc1314d80b1b6965c94fd8, type: 3}
+  - {fileID: 8300000, guid: 67e3e1abddf639b49b042b435c3ca30d, type: 3}
+  - {fileID: 8300000, guid: 6895fd8190ae5a940a2992dd9e22dbcd, type: 3}
+  _durationSpeed: 3
+  _towerHealth: {fileID: 957627014179215451}
+  _settingsPanel: {fileID: 237586556}
 --- !u!114 &1423141986 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5776904660834604382, guid: 3b87e0f6128b1be49952adc9a24d7fea, type: 3}
@@ -5308,6 +5329,7 @@ GameObject:
   - component: {fileID: 1722814702}
   - component: {fileID: 1722814701}
   - component: {fileID: 1722814703}
+  - component: {fileID: 1722814704}
   m_Layer: 5
   m_Name: SFXslider
   m_TagString: Untagged
@@ -5405,7 +5427,7 @@ MonoBehaviour:
     callback:
       m_PersistentCalls:
         m_Calls:
-        - m_Target: {fileID: 1972535813}
+        - m_Target: {fileID: 1722814704}
           m_TargetAssemblyTypeName: DevPlayerSettings, Assembly-CSharp
           m_MethodName: SaveCurrentVolume
           m_Mode: 1
@@ -5417,6 +5439,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+--- !u!114 &1722814704
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1722814700}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071cd344a9dbed84bbbd0d3d97bdec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DevPlayerSettings
+  _audioMixer: {fileID: 24100000, guid: 8b96dd3befd5b144ab92cc4dac3f585b, type: 2}
+  volumeSlider: {fileID: 1722814701}
+  _initParameter: SFX
 --- !u!1 &1741111764
 GameObject:
   m_ObjectHideFlags: 0
@@ -5723,6 +5760,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1804903803}
   - component: {fileID: 1804903804}
+  - component: {fileID: 1804903806}
+  - component: {fileID: 1804903805}
   m_Layer: 5
   m_Name: MusicSlider
   m_TagString: Untagged
@@ -5803,6 +5842,50 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &1804903805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804903802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 071cd344a9dbed84bbbd0d3d97bdec52, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::DevPlayerSettings
+  _audioMixer: {fileID: 24100000, guid: 8b96dd3befd5b144ab92cc4dac3f585b, type: 2}
+  volumeSlider: {fileID: 1804903804}
+  _initParameter: Music
+--- !u!114 &1804903806
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804903802}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.EventSystems.EventTrigger
+  m_Delegates:
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1804903805}
+          m_TargetAssemblyTypeName: DevPlayerSettings, Assembly-CSharp
+          m_MethodName: SaveCurrentVolume
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1837230026
 GameObject:
   m_ObjectHideFlags: 0
@@ -6394,53 +6477,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
---- !u!1 &1972535812
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1972535814}
-  - component: {fileID: 1972535813}
-  m_Layer: 0
-  m_Name: PlayerSettingsManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1972535813
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972535812}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 071cd344a9dbed84bbbd0d3d97bdec52, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: Assembly-CSharp::DevPlayerSettings
-  _audioMixer: {fileID: 24100000, guid: 8b96dd3befd5b144ab92cc4dac3f585b, type: 2}
-  _volumeSlider: {fileID: 1722814701}
-  _initParameter: SFX
---- !u!4 &1972535814
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1972535812}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 431.81354, y: 243.87589, z: 1880.0902}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1978311158
 GameObject:
   m_ObjectHideFlags: 0
@@ -8631,6 +8667,5 @@ SceneRoots:
   - {fileID: 693824506}
   - {fileID: 1067769830}
   - {fileID: 700728379}
-  - {fileID: 1972535814}
   - {fileID: 824245526}
   - {fileID: 1401873414}

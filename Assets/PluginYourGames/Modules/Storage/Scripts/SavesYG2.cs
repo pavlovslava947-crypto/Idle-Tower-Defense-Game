@@ -6,6 +6,7 @@ namespace YG
     {
         public int idSave;
         public int _expCount = 0;
-        public float _playerVolume = 0.75f;
+        public float _sfxVolume = 1f;
+        public float _musicVolume = 1f;
     }
 }
