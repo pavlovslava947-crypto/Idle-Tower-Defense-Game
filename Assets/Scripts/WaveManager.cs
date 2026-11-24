@@ -110,7 +110,11 @@ public class WaveManager : MonoBehaviour
         if (selectedData == null || selectedData.enemyPrefab == null) return;
 
         // Расчет позиции спавна на окружности (плоскость XZ)
+
+        if (towerTransform == null) return;
+
         Vector3 spawnPosition = GetRandomPointOnCircle(towerTransform.position, spawnRadius);
+
 
         // Спавним объект
         GameObject enemyObj = Instantiate(selectedData.enemyPrefab, spawnPosition, Quaternion.identity);
@@ -179,7 +183,7 @@ public class WaveManager : MonoBehaviour
         {
             StartNextWave();
         }
-        
+
     }
 
     public void UpdateWaveUI()
@@ -207,7 +211,7 @@ public class WaveManager : MonoBehaviour
         this.enabled = false;
     }
 
-    
+
 
     private void OnDrawGizmosSelected()
     {

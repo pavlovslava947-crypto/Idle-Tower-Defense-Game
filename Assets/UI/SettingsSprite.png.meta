@@ -1,12 +1,5 @@
 fileFormatVersion: 2
-guid: b3ba75d4e9af8144d8f6df83087fedf2
-AssetOrigin:
-  serializedVersion: 1
-  productId: 375832
-  packageName: Hyper Casual UI Pack
-  packageVersion: 1.0
-  assetPath: Assets/Hyper_Casual_UI/Sprites/Icons/upgrade.png
-  uploadId: 906102
+guid: 9768fa9865a37684491f33cf8fb54b1a
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -76,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 64
+    maxTextureSize: 512
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1

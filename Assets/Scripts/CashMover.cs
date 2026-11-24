@@ -2,16 +2,16 @@ using UnityEngine;
 
 public class CashMover : MonoBehaviour
 {
-    private Transform _tower;
     [SerializeField] private float _speed = 100f;
     [SerializeField] private float _radius;
+    private Transform _tower;
     private bool _movingToTower = true;
     
-    void Start()
+    void Awake()
     {
-        var tower = FindAnyObjectByType<TowerHealth>();
+        TowerHealth tower = FindAnyObjectByType<TowerHealth>();
 
-        if(_tower != null)
+        if(tower != null)
         {
             _tower = tower.transform;
         }

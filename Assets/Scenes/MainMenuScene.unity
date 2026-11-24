@@ -1282,7 +1282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78ac216f30af444f91d4a6bd6c9128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
-  mainScene: GamePlay
+  _mainScene: GamePlay
+  _designScene: Enviroment
   _maxTime: 1
 --- !u!1 &2003948071
 GameObject:
@@ -1835,7 +1836,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c78ac216f30af444f91d4a6bd6c9128b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StartGame
-  mainScene: GamePlay
+  _mainScene: GamePlay
+  _designScene: Enviroment
   _maxTime: 2
 --- !u!1 &6275190773905495950
 GameObject:
