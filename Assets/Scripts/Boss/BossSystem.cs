@@ -7,11 +7,13 @@ public class BossSystem : MonoBehaviour
     [SerializeField] private LayerMask _enemyLayer;
     private WaveManager _waveManager;
     private BossSpawner _bossSpawner;
+    private BossMover _bossMover;
 
     private void Awake()
     {
         _waveManager = FindAnyObjectByType<WaveManager>();
         _bossSpawner = FindAnyObjectByType<BossSpawner>();
+        _bossMover = GetComponent<BossMover>();
     }
 
     private void Start()
@@ -20,7 +22,7 @@ public class BossSystem : MonoBehaviour
 
         foreach (Collider enemy in _enemys)
         {
-            if(enemy.TryGetComponent<DummyEnemy>(out var newEnemy))
+            if (enemy.TryGetComponent<DummyEnemy>(out var newEnemy))
             {
                 newEnemy.OnEnemyDied += OnEnemyDie;
                 _enemyCount++;
@@ -34,19 +36,32 @@ public class BossSystem : MonoBehaviour
 
         if (_enemyCount <= 0)
         {
-            _waveManager.UpdateWaveUI();
-
-            foreach (Collider enemy in _enemys)
+            if (_waveManager != null)
             {
-                if (enemy.TryGetComponent<DummyEnemy>(out var newEnemy))
+                _waveManager.UpdateWaveUI();
+            }
+
+            if (_enemys != null)
+            {
+                foreach (Collider enemy in _enemys)
                 {
-                    newEnemy.OnEnemyDied -= OnEnemyDie;
+                    if (enemy != null && enemy.TryGetComponent<DummyEnemy>(out var newEnemy))
+                    {
+                        newEnemy.OnEnemyDied -= OnEnemyDie;
+                    }
                 }
             }
-            _bossSpawner._isSpawned = false;
 
+            if (_bossSpawner != null)
+            {
+                _bossSpawner._isSpawned = false;
+            }
+
+            // Запускаем отъезд грузовика после зачистки волн/врагов
+            if (_bossMover != null)
+            {
+                _bossMover.StartLeaving();
+            }
         }
     }
-
-
 }

@@ -3041,7 +3041,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3b8a5f6734ce479fb71ef9d28079c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSystem
-  _maxTime: 60
+  _maxTime: 1
   _timer: 0
 --- !u!4 &826420603
 Transform:
@@ -6922,6 +6922,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bbf9b1b44b24f3a489665f1f23171e8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuLoader
+  _designScene: Enviroment
 --- !u!114 &2071908788
 MonoBehaviour:
   m_ObjectHideFlags: 0
