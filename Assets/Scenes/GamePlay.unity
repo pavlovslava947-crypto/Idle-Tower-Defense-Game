@@ -400,6 +400,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonUI
   upgradeManager: {fileID: 1980382665}
+  _currencyManager: {fileID: 1423141986}
   statToUpgrade: 1
   currentCost: 7
   upgradeAmount: 30
@@ -2690,6 +2691,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonUI
   upgradeManager: {fileID: 1980382665}
+  _currencyManager: {fileID: 1423141986}
   statToUpgrade: 2
   currentCost: 3
   upgradeAmount: 30
@@ -3041,7 +3043,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4be3b8a5f6734ce479fb71ef9d28079c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PowerUpSystem
-  _maxTime: 1
+  _maxTime: 60
   _timer: 0
 --- !u!4 &826420603
 Transform:
@@ -6156,6 +6158,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::UpgradeButtonUI
   upgradeManager: {fileID: 1980382665}
+  _currencyManager: {fileID: 1423141986}
   statToUpgrade: 0
   currentCost: 5
   upgradeAmount: 50
